@@ -12,7 +12,7 @@
 	<div class="login_box">
 		<div class="row-fluid">
 			<div class="span12">
-				<form class="form-horizontal" action="/" method="post">
+				<form class="form-horizontal" action="/" method="post" id="login_form">
 					<div class="control-group">
 						 <label class="control-label" for="inputEmail">邮箱</label>
 						<div class="controls">
@@ -37,5 +37,22 @@
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://zhenyouai.avosapps.com/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$('#login_form').submit(function(){
+		var user = new AV.User();
+		
+		AV.User.login
+		AV.User.logIn("admin", "123456", {
+		  success: function(user) {
+			alert('success');
+		  },
+		  error: function(user, error) {
+			alert('error');
+		  }
+		});
+		
+		return false;
+	});
+</script>
 </body>
 </html>
