@@ -13,7 +13,11 @@ app.get('/hello', function(req, res) {
 });
 
 app.get('/login',function(req,res){
-	res.render('login',{message:'dddddddddddd'});
+	res.render('login',{});
+});
+
+app.get('/',function(req,res){
+	res.render('index',{});
 });
 //最后，必须有这行代码来使express响应http请求
 app.listen();
