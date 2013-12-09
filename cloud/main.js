@@ -6,5 +6,5 @@ AV.Cloud.define("hello", function(request, response) {
 });
 
 AV.Cloud.define('login', function(request, response){
-	response.success("Hello world!");
+	response.success({username:'admin',password:'123456'});
 });
