@@ -13,6 +13,7 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<form class="form-horizontal"  id="login_form">
+					<img src="/images/login_bg" alt="" style="width:200px;"/>
 					<div class="control-group">
 						 <label class="control-label" for="inputEmail">邮箱</label>
 						<div class="controls">
@@ -51,8 +52,8 @@
 			alert('success');
 		  },
 		  error: function(user, error) {
-			console.log(error);
-			alert(error);
+			console.log(error.message);
+			alert(error.message);
 		  }
 		});
 		
