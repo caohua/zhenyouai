@@ -71,7 +71,7 @@
 					
 				</div>
 				<div class="modal-body">
-					    <form class="form-horizontal">
+					    <form class="form-horizontal" id="add_wedding_form">
 							<div class="control-group">
 								<label class="control-label">男方：</label>
 								<div class="controls">
@@ -90,11 +90,17 @@
 									<input type="text" placeholder="日期" id="datetimepicker"/>
 								</div>
 							</div>
+							<div class="control-group">
+								<label for="" class="control-label"></label>
+								<div class="controls">
+									<button type="submit" class="btn btn-primary" data-loading-text="正在加载">创建</button>
+								</div>
+							</div>
 							
 						</form>
 				</div>
 				<div class="modal-footer tc">
-					<button class="btn btn-primary" data-loading-text="正在加载">创建</button>
+					
 				</div>
 			</div>
 			<table class="table wedding_list">
@@ -135,7 +141,7 @@
 								</td>
 								<td>
 									<a href="./wedding?id=<%= wedding.get('objectid')%>">编辑</a>
-									<a href="#del_confirm" role="button" class="btn" data-toggle="modal">删除</a>
+									<a href="#del_confirm" class="del_wedding" role="button" data-toggle="modal">删除</a>
 								</td>
 							</tr>
 						
@@ -157,7 +163,8 @@
 					<p>你确定要删除？删除后不可恢复！</p>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-primary" data-loading-text="确定...">确定</button>
+					<button contenteditable="true" aria-hidden="true" data-dismiss="modal" class="btn">取消</button>
+					<button class="btn btn-primary do_del_wedding"  data-loading-text="确定...">确定</button>
 				</div>
 			</div>
 			
@@ -192,7 +199,38 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://zhenyouai.avosapps.com/bootstrap/js/bootstrap.min.js"></script>
 <script src="/js/lightbox/js/lightbox-2.6.min.js"></script>
- <script type="text/javascript" src="http://zhenyouai.avosapps.com/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
+<script type="text/javascript" src="http://zhenyouai.avosapps.com/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
+<script src="https://cn.avoscloud.com/scripts/lib/av-0.2.7.min.js"></script>
+<script type="text/javascript">
+	AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
+</script>
+<script type="text/javascript">
+	$('#add_wedding_form').submit(function(){
+		var boy = $('#boy').val();
+		var girl = $('#girl').val();
+		var time = $('#time').val();
+		
+		
+		var Wedding = new AV.Object.extend('Wedding');
+		var Couple = new Av.Object.extend('Couple');
+		var wedding = new Wedding();
+		var couple = new Couple();
+		
+		couple.set('boy',boy);
+		couple.set('girl',girl);
+		
+		couple.save(null,{
+			success: function(couple){
+				console.log(couple);
+			},
+			error: function(couple,error){
+				alert('Failed to create new object, with error code: ' + error.description);
+			}
+		});
+		
+		return false;
+	});
+</script>
     </script>
     <script type="text/javascript">
       $('#datetimepicker').datetimepicker({
@@ -205,6 +243,10 @@
         secondStep: 30,
         inputMask: false
       });
+	  
+	  $('.del_wedding').bind('click',function(){
+		
+	  });
     </script>
 </body>
 </html>
