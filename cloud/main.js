@@ -5,7 +5,7 @@ AV.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
-AV.Cloud.define('login', function(request, response){
+/* AV.Cloud.define('login', function(request, response){
 	//var user = AV.Object.extend("admin");
 	response.success('hello');
-});
+}); */
