@@ -8,6 +8,7 @@
 <link href="http://zhenyouai.avosapps.com/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="http://zhenyouai.avosapps.com/css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" media="screen" href="http://zhenyouai.avosapps.com/bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
+<link href="/js/lightbox/css/lightbox.css" rel="stylesheet" />
 </head>
 <body>
 <div class="navbar">
@@ -122,10 +123,9 @@
 							<tr>
 								<td>
 									<%= wedding.get('sweetcode') %>
-									<%= wedding.get('couple').get('weddingcover').url() %>
 								</td>
 								<td>
-									<img src="<%= wedding.get('couple').get('weddingcover').url() %>" class="img-polaroid" alt="" style="width:90px;" />
+									<a href="<%= wedding.get('couple').get('weddingcover').url() %>" data-lightbox="demo" title="<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>"><img src="<%= wedding.get('couple').get('weddingcover').url() %>" class="img-polaroid" alt="" style="width:90px;" /></a>
 								</td>
 								<td>
 									<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>
@@ -174,6 +174,7 @@
 </div>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://zhenyouai.avosapps.com/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/lightbox/js/lightbox-2.6.min.js"></script>
  <script type="text/javascript" src="http://zhenyouai.avosapps.com/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
     </script>
     <script type="text/javascript">
