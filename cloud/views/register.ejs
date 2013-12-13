@@ -61,7 +61,8 @@
 
 		user.signUp(null, {
 		  success: function(user) {
-			alert('ssss');
+			alert('注册成功');
+			location.href = './login';
 		  },
 		  error: function(user, error) {
 			alert("Error: " + error.code + " " + error.message);

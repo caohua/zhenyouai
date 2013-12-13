@@ -49,11 +49,10 @@
 		var user = new AV.User();
 
 		AV.User.logIn(userName, userPassword, {
-		  success: function(user) {
-			alert('success');
-		  },
+			success: function(user) {
+				location.href = './index';
+			},
 		  error: function(user, error) {
-			console.log(error.message);
 			alert(error.message);
 		  }
 		});
