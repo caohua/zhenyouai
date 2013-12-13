@@ -75,13 +75,13 @@
 							<div class="control-group">
 								<label class="control-label">男方：</label>
 								<div class="controls">
-									<input type="text" placeholder="男方姓名">
+									<input id="boy" type="text" placeholder="男方姓名">
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">女方：</label>
 								<div class="controls">
-									<input type="text" placeholder="女方姓名">
+									<input id="girl" type="text" placeholder="女方姓名">
 								</div>
 							</div>
 							<div class="control-group">
@@ -208,7 +208,7 @@
 	$('#add_wedding_form').submit(function(){
 		var boy = $('#boy').val();
 		var girl = $('#girl').val();
-		var time = $('#time').val();
+		var time = $('#datetimepicker').val();
 		
 		var Wedding =  AV.Object.extend('Wedding');
 		var Couple =  AV.Object.extend('Couple');
