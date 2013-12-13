@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>珍爱网-首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="http://zhenyouai.avosapps.com/css/style.css" rel="stylesheet" media="screen">
+<link href="http://zhenyouai.avosapps.com/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="http://zhenyouai.avosapps.com/css/style.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" media="screen" href="http://zhenyouai.avosapps.com/bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="#" class="brand">珍爱网</a>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<ul class="nav">
+					<li class="active">
+						<a href="#">主页</a>
+					</li>
+					<li>
+						<a href="#">帮助</a>
+					</li>
+					<li>
+						<a href="#">关于</a>
+					</li>
+				</ul>
+				<ul class="nav pull-right">
+					<li class="divider-vertical">
+					</li>
+					<li class="dropdown">
+						 <a data-toggle="dropdown" class="dropdown-toggle" href="#">阿树<strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">用户简介</a>
+							</li>
+							<li>
+								<a href="#">修改密码</a>
+							</li>
+							<li>
+								<a href="#">其他</a>
+							</li>
+							<li class="divider">
+							</li>
+							<li>
+								<a href="#">退出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="tabbable" id="tabs-81246">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-1" data-toggle="tab">婚礼封面</a>
+					</li>
+					<li>
+						<a href="#panel-2" data-toggle="tab">甜蜜婚照</a>
+					</li>
+					<li>
+						<a href="#panel-3" data-toggle="tab">新郎新娘介绍</a>
+					</li>
+					<li>
+						<a href="#panel-4" data-toggle="tab">婚宴日间地点</a>
+					</li>
+					<li>
+						<a href="#panel-5" data-toggle="tab">视频</a>
+					</li>
+					<li>
+						<a href="#panel-6" data-toggle="tab">电子请贴</a>
+					</li>
+					<li>
+						<a href="#panel-7" data-toggle="tab">转发设置</a>
+					</li>
+					<li>
+						<a href="#panel-8" data-toggle="tab">婚礼流程</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-1">
+						<div class="alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong>警告!</strong> 请注意你的个人隐私安全.
+						</div>
+						<form class="form-inline">
+							<input type="file" class="input-small" placeholder="选择图片">
+							<button type="submit" class="btn">上传</button>
+						</form>
+						<img class="img-polaroid" src="./images/demo/demo1.jpg" style="width:300px;"/>
+					</div>
+					<div class="tab-pane" id="panel-2">
+						<div class="row-fluid">
+							<div class="span3">
+								<ul class="photo_list">
+									<li>
+										快乐星期四
+									</li>
+									<li>
+										天赐良缘
+									</li>
+									<li>
+										爱的见证
+									</li>
+								</ul>
+				
+								<a id="modal-695810" href="#modal-container-695810" role="button" class="btn" data-toggle="modal">创建相册</a>
+								
+								<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-header">
+										 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										<h3 id="myModalLabel">
+											创建相册
+										</h3>
+										
+									</div>
+									<div class="modal-body">
+											<form class="form-horizontal">
+												<div class="control-group">
+													<label class="control-label">相册名称：</label>
+													<div class="controls">
+														<input type="text" placeholder="输入相册名称">
+													</div>
+												</div>
+											</form>
+									</div>
+									<div class="modal-footer tc">
+										<button class="btn btn-primary" data-loading-text="正在加载">创建</button>
+									</div>
+								</div>
+								
+							</div>
+							
+							<div class="span9">
+								<div class="photo_box">
+									<div class="photos_opera">
+										<a id="modal-695811" href="#modal-container-695811" role="button" class="btn ml20" data-toggle="modal">上传照片</a>
+										<span class="ml20">共20张</span>
+										
+										<div id="modal-container-695811" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+											<div class="modal-header">
+												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h3 id="myModalLabel2">
+													上传照片
+												</h3>
+												
+											</div>
+											<div class="modal-body">
+													<div class="alert alert-info">
+														<strong>警告!</strong> 请注意你的个人隐私安全.
+													</div>
+													<form class="form-horizontal">
+														<div class="control-group">
+															<div class="controls">
+																<input type="file" placeholder="选择图片">
+															</div>
+														</div>
+													</form>
+											</div>
+											<div class="modal-footer tc">
+												<button class="btn btn-primary" data-loading-text="正在加载">上传</button>
+											</div>
+										</div>
+										
+									</div>
+									<div class="photos">
+										<ul>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+										</ul>
+									</div>
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="tab-pane" id="panel-3">
+						<form class="form-horizontal user_intro_form" >
+							<div class="control-group">
+								<label class="control-label">新郎介绍：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">新娘介绍：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">相识相知：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-4">
+						<form class="form-horizontal party_intro_form" >
+							<div class="control-group">
+								<label class="control-label">坐标：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="地点坐标" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">时间：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="宴会时间" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">交通信息：</label>
+								<div class="controls">
+									<textarea rows="3" class="input-xxlarge"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-5">
+						<form class="form-horizontal party_intro_form" >
+							<div class="control-group">
+								<label class="control-label">地址：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="地址" />
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-6">
+					6
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://zhenyouai.avosapps.com/bootstrap/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="http://zhenyouai.avosapps.com/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript">
+      $('#datetimepicker').datetimepicker({
+        format: 'MM/dd/yyyy hh:mm',
+        language: 'en',
+        pickDate: true,
+        pickTime: true,
+        hourStep: 1,
+        minuteStep: 15,
+        secondStep: 30,
+        inputMask: false
+      });
+    </script>
+</body>
+</html>

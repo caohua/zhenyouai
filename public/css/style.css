@@ -1,4 +1,21 @@
 ﻿body{background:#fafafa !important;}
 .login_box{width:550px; margin:auto; margin-top:150px; right:0; bottom:0; border:1px solid #ddd; padding:0px 0 10px 0 ;  box-shadow:1px 1px 5px rgba(0,0,0,.3); border-radius:6px; background:#fff; }
 .login_ad{width:100%; margin-bottom:30px;}
+.wedding_list td,.wedding_list th{vertical-align: middle; text-align:center;}
+
+.photo_list{width:100%; border:1px solid #ccc; background:#fff; padding:10px 20px; list-style:none; margin-left:0;}
+.photo_box{border:1px solid #ccc; background:#fff; margin-left:20px;}
+.photo_list li{margin-bottom:10px; line-height:24px; border-bottom:1px solid #ccc;}
+
+.photos{margin:0; overflow:hidden; zoom:1; padding:15px 0;}
+.photos img{width:150px;}
+.photos ul{list-style:none; overflow:hidden; zoom:1;}
+.photos li{float:left; margin-right:15px; margin-top:20px;}
+.photos_opera{padding:15px 0 15px 0; border-bottom:1px solid #ccc; }
+
+
+
+.tc{text-align:center;}
+.ml10{margin-left:10px;}
+.ml20{margin-left:20px;}
 
