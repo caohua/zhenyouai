@@ -100,7 +100,7 @@
 			<table class="table wedding_list">
 				<thead>
 					<tr>
-						<th>
+						<th width="250">
 							编号（邀请码）
 						</th>
 						<th>
@@ -131,7 +131,7 @@
 									<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>
 								</td>
 								<td>
-									<%= wedding.get('createdAt') %>
+									<%= wedding.get('holdAt') %>
 								</td>
 								<td>
 									<a href="./wedding?id=<%= wedding.get('objectId')%>">编辑</a>
