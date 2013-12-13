@@ -8,11 +8,21 @@ app.set('view engine', 'ejs');    // 设置template引擎
 app.use(express.bodyParser());    // 读取请求body的中间件
 
 //使用express路由API服务/hello的http GET请求
+var curUser = AV.User.current();
+
 app.get('/index', function(req, res) {
-  res.render('index', {userName:'阿树1'});
+	if (!curUser){
+		res.render('login');
+		return false;
+	}
+	res.render('index', {userName:'阿树1'});
 });
 
 app.get('/login',function(req,res){
+	if (curUser){
+		res.render('index', {userName:'阿树1'});
+		return false;
+	}
 	res.render('login',{});
 });
 
