@@ -100,7 +100,7 @@
 				<thead>
 					<tr>
 						<th>
-							编号
+							编号（邀请码）
 						</th>
 						<th>
 							婚照
@@ -117,78 +117,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							1344222
-						</td>
-						<td>
-							<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
-						</td>
-						<td>
-							单子怡&江峰
-						</td>
-						<td>
-							2013-12-12 9:00
-						</td>
-						<td>
-							<a href="./wedding?id=1">编辑</a>
-							<a href="#">删除</a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							1344222
-						</td>
-						<td>
-							<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
-						</td>
-						<td>
-							单子怡&江峰
-						</td>
-						<td>
-							2013-12-12 9:00
-						</td>
-						<td>
-							<a href="#">编辑</a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							1344222
-						</td>
-						<td>
-							<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
-						</td>
-						<td>
-							单子怡&江峰
-						</td>
-						<td>
-							2013-12-12 9:00
-						</td>
-						<td>
-							<a href="#">编辑</a>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							1344222
-						</td>
-						<td>
-							<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
-						</td>
-						<td>
-							单子怡&江峰
-						</td>
-						<td>
-							2013-12-12 9:00
-						</td>
-						<td>
-							<a href="#">编辑</a>
-						</td>
-					</tr>
+					<% if (weddings){ %>
+						<% weddings.forEach(function(wedding){ %>
+							<tr>
+								<td>
+									<%= wedding.get('sweetcode') %>
+								</td>
+								<td>
+									<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
+								</td>
+								<td>
+									单子怡&江峰
+								</td>
+								<td>
+									2013-12-12 9:00
+								</td>
+								<td>
+									<a href="./wedding?id=1">编辑</a>
+									<a href="#">删除</a>
+								</td>
+							</tr>
+						
+					<%	})%>
+					<% }%>
 					
 				</tbody>
 			</table>
