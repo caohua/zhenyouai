@@ -10,12 +10,30 @@ app.use(express.bodyParser());    // 读取请求body的中间件
 //使用express路由API服务/hello的http GET请求
 var curUser = AV.User.current();
 
+var Wedding = AV.Object.extend('Wedding');
+function renderIndex(res, name){
+	var query = new AV.Query(Wedding);
+	query.skip(0);
+	query.limit(10);
+	query.descending('createdAt');
+	query.find({
+		success: function(results){
+			res.render('index',{ userName: name, weddings: results});
+		},
+		error: function(error){
+			console.log(error);
+			res.render('500',500)
+		}
+	});
+
+}
+
 app.get('/index', function(req, res) {
 	/* if (!curUser){
 		res.redirect('/login');
 		return false;
 	} */
-	res.render('index', {userName:'阿树1'});
+	renderIndex(res,'caohua');
 });
 
 app.get('/login',function(req,res){
