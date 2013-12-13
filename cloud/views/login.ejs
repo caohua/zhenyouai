@@ -12,18 +12,18 @@
 	<div class="login_box">
 		<div class="row-fluid">
 			<div class="span12">
-				<form class="form-horizontal"  id="login_form">
+				<form class="form-horizontal" action="https://cn.avoscloud.com/1/login"  id="login_form">
 					<img src="/images/login_bg.jpg" alt="" class="login_ad"/>
 					<div class="control-group">
 						 <label class="control-label" for="inputAccount">帐号</label>
 						<div class="controls">
-							<input id="inputAccount" type="text" class="input-xlarge" placeholder="请输入用户名"/>
+							<input id="inputAccount" name="name" type="text" class="input-xlarge" placeholder="请输入用户名"/>
 						</div>
 					</div>
 					<div class="control-group">
 						 <label class="control-label" for="inputPassword">密码</label>
 						<div class="controls">
-							<input id="inputPassword" type="password" class="input-xlarge" placeholder="请输入用户密码"/>
+							<input id="inputPassword" name="password" type="password" class="input-xlarge" placeholder="请输入用户密码"/>
 						</div>
 					</div>
 					<div class="control-group">
@@ -43,7 +43,7 @@
 	AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
 <script type="text/javascript">
-	$('#login_form').submit(function(){
+	/*$('#login_form').submit(function(){
 		var userName = $('#inputAccount').val();
 		var userPassword = $('#inputPassword').val();
 		var user = new AV.User();
@@ -60,6 +60,7 @@
 		
 		return false;
 	});
+	*/
 </script>
 </body>
 </html>
