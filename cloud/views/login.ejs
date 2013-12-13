@@ -15,15 +15,15 @@
 				<form class="form-horizontal"  id="login_form">
 					<img src="/images/login_bg.jpg" alt="" class="login_ad"/>
 					<div class="control-group">
-						 <label class="control-label" for="inputEmail">邮箱</label>
+						 <label class="control-label" for="inputAccount">帐号</label>
 						<div class="controls">
-							<input id="inputEmail" type="text" class="input-xlarge"/>
+							<input id="inputAccount" type="text" class="input-xlarge" placeholder="请输入用户名"/>
 						</div>
 					</div>
 					<div class="control-group">
 						 <label class="control-label" for="inputPassword">密码</label>
 						<div class="controls">
-							<input id="inputPassword" type="password" class="input-xlarge"/>
+							<input id="inputPassword" type="password" class="input-xlarge" placeholder="请输入用户密码"/>
 						</div>
 					</div>
 					<div class="control-group">
@@ -44,10 +44,11 @@
 </script>
 <script type="text/javascript">
 	$('#login_form').submit(function(){
+		var userName = $('#inputAccount').val();
+		var userPassword = $('#inputPassword').val();
 		var user = new AV.User();
-		
-		AV.User.login
-		AV.User.logIn("admin", "123456", {
+
+		AV.User.logIn(userName, userPassword, {
 		  success: function(user) {
 			alert('success');
 		  },
