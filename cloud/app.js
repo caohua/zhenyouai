@@ -17,6 +17,7 @@ function renderIndex(res, name){
 	query.limit(10);
 	query.descending('createdAt');
 	query.include("couple");
+	
 	query.find({
 		success: function(results){
 			res.render('index',{ userName: name, weddings: results});
