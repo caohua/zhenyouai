@@ -12,12 +12,18 @@
 	<div class="login_box">
 		<div class="row-fluid">
 			<div class="span12">
-				<form class="form-horizontal" action="https://cn.avoscloud.com/1/login"  id="login_form">
+				<form class="form-horizontal" action="https://cn.avoscloud.com/1/register"  id="register_form">
 					<img src="/images/login_bg.jpg" alt="" class="login_ad"/>
 					<div class="control-group">
 						 <label class="control-label" for="inputAccount">帐号</label>
 						<div class="controls">
-							<input id="inputAccount" name="name" type="text" class="input-xlarge" placeholder="请输入用户名"/>
+							<input id="inputAccount" name="username" type="text" class="input-xlarge" placeholder="请输入用户名"/>
+						</div>
+					</div>
+					<div class="control-group">
+						 <label class="control-label" for="inputEmail">email</label>
+						<div class="controls">
+							<input id="inputEmail" name="email" type="text" class="input-xlarge" placeholder="请输入email"/>
 						</div>
 					</div>
 					<div class="control-group">
@@ -28,7 +34,7 @@
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn btn">登  陆</button>
+							<button type="submit" class="btn btn">注 册</button>
 						</div>
 					</div>
 				</form>
@@ -43,18 +49,22 @@
 	AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
 <script type="text/javascript">
-	$('#login_form').submit(function(){
+	$('#register_form').submit(function(){
 		var userName = $('#inputAccount').val();
+		var userEmail = $('#inputEmail').val();
 		var userPassword = $('#inputPassword').val();
+		
 		var user = new AV.User();
+		user.set("username", username);
+		user.set("password", userPassword);
+		user.set("email", userEmail);
 
-		AV.User.logIn(userName, userPassword, {
+		user.signUp(null, {
 		  success: function(user) {
-			alert('success');
+			alert('ssss');
 		  },
 		  error: function(user, error) {
-			console.log(error.message);
-			alert(error.message);
+			alert("Error: " + error.code + " " + error.message);
 		  }
 		});
 		
