@@ -124,16 +124,16 @@
 									<%= wedding.get('sweetcode') %>
 								</td>
 								<td>
-									<img src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" class="img-polaroid" alt="" style="width:90px;" />
+									<img src="<%= wedding.get('couple').get('weddingcover') %>" class="img-polaroid" alt="" style="width:90px;" />
 								</td>
 								<td>
-									<%= wedding.get('couple').get('boy') %>& <%= wedding.get('girl') %>
+									<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>
 								</td>
 								<td>
-									2013-12-12 9:00
+									<%= wedding.get('createdAt') %>
 								</td>
 								<td>
-									<a href="./wedding?id=1">编辑</a>
+									<a href="./wedding?id=<%= wedding.get('objectId')%>">编辑</a>
 									<a href="#">删除</a>
 								</td>
 							</tr>
