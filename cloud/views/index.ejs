@@ -222,7 +222,6 @@
 			success: function(couple){
 				var coupleId = couple.objectId;
 				wedding.set('couple',coupleId);
-				wedding.set('holdAt',time);
 				wedding.save(null,{
 					success: function(wedding){
 						console.log(wedding);
