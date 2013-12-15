@@ -51,7 +51,8 @@ app.get('/register',function(req,res){
 });
 
 app.get('/wedding',function(req,res){
-	res.render('wedding',{userName:'阿树1'});
+	var id = req.query.id;
+	res.render('wedding',{id:id,userName:'阿树1'});
 });
 
 app.get('/',function(req,res){
