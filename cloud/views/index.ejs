@@ -218,11 +218,11 @@
 		
 		couple.set('boy',boy);
 		couple.set('girl',girl);
-		couple.set("parent",wedding);
 	
 		wedding.set('sweetcode','0000000');
+		wedding.set('couple',couple);
 		
-		couple.save(null,{
+		wedding.save(null,{
 			success: function(couple){
 				var coupleId = couple.id;
 				console.log(couple);
