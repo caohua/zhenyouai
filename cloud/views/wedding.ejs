@@ -295,7 +295,7 @@
 			var file = fileUploadControl.files[0];
   			var name = "photo.jpg";
 
-			var avFile = AV.File(name,file);
+			var avFile = new AV.File(name,file);
 			avFile.save().then(function(file){
 				console.log(file);
 			},function(error){});
