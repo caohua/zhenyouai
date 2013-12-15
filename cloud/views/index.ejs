@@ -223,6 +223,15 @@
 				var coupleId = couple.objectId;
 				wedding.set('couple',coupleId);
 				wedding.set('holdAt',time);
+				wedding.save(null,{
+					success: function(wedding){
+						console.log(wedding);
+						alert('success');
+					},
+					error: function(wedding,error){
+						alert('Failed to create new object, with error code: ' + error.description);
+					}
+				});
 			},
 			error: function(couple,error){
 				alert('Failed to create new object, with error code: ' + error.description);
