@@ -91,10 +91,10 @@
 							<button type="button" class="close" data-dismiss="alert">×</button>
 							<strong>警告!</strong> 请注意你的个人隐私安全.
 						</div>
-						<form class="form-inline">
+						<div class="form-inline">
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
-						</form>
 							<button class="btn" id="upload_wedding_cover">上传</button>
+						</div>
 						<img class="img-polaroid" src="./images/demo/demo1.jpg" style="width:300px;"/>
 					</div>
 					<div class="tab-pane" id="panel-2">
@@ -290,10 +290,11 @@
 </script>
     <script type="text/javascript">
 	$('#upload_wedding_cover').bind('click',function(){
-		var upload = $('#wedding_cover')[0];
-		if (upload.files.length > 0){
-			var file = upload.files[0]; 
-			var name = "photo.jpg";
+		var fileUploadControl = $('#wedding_cover')[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
 			var avFile = AV.File(name,file);
 			avFile.save().then(function(file){
 				console.log(file);
