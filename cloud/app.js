@@ -30,6 +30,10 @@ function renderIndex(res, name){
 
 }
 
+function renderWedding(res){
+	
+}
+
 app.get('/index', function(req, res) {
 	/* if (!curUser){
 		res.redirect('/login');
@@ -52,7 +56,15 @@ app.get('/register',function(req,res){
 
 app.get('/wedding',function(req,res){
 	var id = req.query.id;
-	res.render('wedding',{id:id,userName:'阿树1'});
+	var Wedding = AV.Object.extend('Wedding');
+        var query = new AV.Query(Wedding);
+                                query.get(id,{
+                                        success: function(wedding){
+						res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
+                                        },
+                                        error: function(error){}
+                                });
+	
 });
 
 app.get('/',function(req,res){

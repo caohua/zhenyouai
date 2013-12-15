@@ -95,7 +95,7 @@
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
 							<button class="btn" id="upload_wedding_cover">上传</button>
 						</div>
-						<img class="img-polaroid" id="wedding_img" src="./images/demo/demo1.jpg" style="width:350px;"/>
+						<img class="img-polaroid" id="wedding_img" src="<%= wedding.get('couple').get('weddingcover').url() %>" style="width:350px;"/>
 					</div>
 					<div class="tab-pane" id="panel-2">
 						<div class="row-fluid">
@@ -310,7 +310,7 @@
 						var couple = wedding.get('couple');
 						couple.set('weddingcover',file);	
 						couple.save().then(function(){
-							alert('success');
+							alert('上传成功');
 						});
 						console.log(wedding);
 					},
