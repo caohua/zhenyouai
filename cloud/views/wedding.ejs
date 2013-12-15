@@ -307,6 +307,11 @@
 				var query = new AV.Query(Wedding);
 				query.get(weddingId,{
 					success: function(wedding){
+						var couple = wedding.get('couple');
+						couple.set('weddingcover',file);	
+						couple.save().then(function(){
+							alert('success');
+						});
 						console.log(wedding);
 					},
 					error: function(error){}
