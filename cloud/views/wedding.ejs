@@ -55,7 +55,7 @@
 	</div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid main_content">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="tabbable" id="tabs-81246">
@@ -92,8 +92,8 @@
 							<strong>警告!</strong> 请注意你的个人隐私安全.
 						</div>
 						<form class="form-inline">
-							<input type="file" class="input-small" placeholder="选择图片">
-							<button type="submit" class="btn">上传</button>
+							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
+							<button class="btn" id="upload_wedding_cover">上传</button>
 						</form>
 						<img class="img-polaroid" src="./images/demo/demo1.jpg" style="width:300px;"/>
 					</div>
@@ -237,7 +237,7 @@
 							<div class="control-group">
 								<label class="control-label">时间：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="宴会时间" />
+									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker"/>
 								</div>
 							</div>
 							<div class="control-group">
@@ -285,7 +285,23 @@
  <script type="text/javascript" src="http://zhenyouai.avosapps.com/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
     </script>
     <script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
+	$('#upload_wedding_cover').bind('click',function(){
+		var upload = $('#wedding_cover')[0];
+		if (upload.files.length > 0){
+			var file = upload.files[0]; 
+			var name = "photo.jpg";
+			var avFile = AV.File(name,file);
+			avFile.save().then(function(file){
+				console.log(file);
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	});
+    </script>
+    <script type="text/javascript">
+      $('#datepicker').datetimepicker({
         format: 'MM/dd/yyyy hh:mm',
         language: 'en',
         pickDate: true,
