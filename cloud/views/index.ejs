@@ -223,10 +223,9 @@
 		wedding.set('couple',couple);
 		
 		wedding.save(null,{
-			success: function(couple){
-				var coupleId = couple.id;
-				console.log(couple);
-				console.log(coupleId);
+			success: function(wedding){
+				var id = wedding.id;
+				location.href = "./wedding?id="+id;
 				/*
 				wedding.set('Couple',coupleId);
 				wedding.save(null,{
