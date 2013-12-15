@@ -221,6 +221,8 @@
 		couple.save(null,{
 			success: function(couple){
 				var coupleId = couple.objectId;
+				console.log(couple);
+				console.log(coupleId);
 				wedding.set('couple',coupleId);
 				wedding.save(null,{
 					success: function(wedding){
