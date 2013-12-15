@@ -1,5 +1,5 @@
 ﻿body{background:#fafafa !important;}
-.login_box{width:550px; margin:auto; margin-top:150px; right:0; bottom:0; border:1px solid #ddd; padding:0px 0 10px 0 ;  box-shadow:1px 1px 5px rgba(0,0,0,.3); border-radius:6px; background:#fff; }
+.login_box{width:550px; margin:auto; margin-top:100px; right:0; bottom:0; border:1px solid #ddd; padding:0px 0 10px 0 ;  box-shadow:1px 1px 5px rgba(0,0,0,.3); border-radius:6px; background:#fff; }
 .login_ad{width:100%; margin-bottom:30px;}
 .wedding_list td,.wedding_list th{vertical-align: middle; text-align:center;}
 
