@@ -95,7 +95,7 @@
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
 							<button class="btn" id="upload_wedding_cover">上传</button>
 						</div>
-						<img class="img-polaroid" src="./images/demo/demo1.jpg" style="width:300px;"/>
+						<img class="img-polaroid" id="wedding_img" src="./images/demo/demo1.jpg" style="width:350px;"/>
 					</div>
 					<div class="tab-pane" id="panel-2">
 						<div class="row-fluid">
@@ -290,7 +290,7 @@
         AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
     <script type="text/javascript">
-	var weddingId = <%= id%>;
+	var weddingId = '<%= id%>';
 	$('#upload_wedding_cover').bind('click',function(){
 		var fileUploadControl = $('#wedding_cover')[0];
 		if (fileUploadControl.files.length > 0){
@@ -299,7 +299,9 @@
 
 			var avFile = new AV.File(name,file);
 			avFile.save().then(function(file){
-				console.log(file);
+				var url = file._url;
+				var id = file.id;
+				$('#wedding_img').attr('src',url);
 			},function(error){});
 			
 		}else{
