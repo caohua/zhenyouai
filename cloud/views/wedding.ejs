@@ -302,6 +302,15 @@
 				var url = file._url;
 				var id = file.id;
 				$('#wedding_img').attr('src',url);
+
+				var Wedding = AV.Object.extend('Wedding');
+				var query = new AV.Query(Wedding);
+				query.get(weddingId,{
+					success: function(wedding){
+						console.log(wedding);
+					},
+					error: function(error){}
+				});
 			},function(error){});
 			
 		}else{
