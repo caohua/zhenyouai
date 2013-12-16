@@ -95,7 +95,6 @@
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
 							<button class="btn" id="upload_wedding_cover">上传</button>
 						</div>
-						<%= JSON.stringify(wedding.get('couple'))%>
 						<img class="img-polaroid" id="wedding_img" src="<%= wedding.get('couple').get('weddingcover').url() %>" style="width:350px;"/>
 					</div>
 					<div class="tab-pane" id="panel-2">
