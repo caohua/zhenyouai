@@ -54,6 +54,8 @@ app.get('/wedding',function(req,res){
 	var id = req.query.id;
 	var Wedding = AV.Object.extend('Wedding');
         var query = new AV.Query(Wedding);
+	query.include("couple");
+
         query.get(id,{
              success: function(wedding){
 		res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
