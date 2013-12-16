@@ -13,7 +13,8 @@
 .photos li{float:left; margin-right:15px; margin-top:20px;}
 .photos_opera{padding:15px 0 15px 0; border-bottom:1px solid #ccc; }
 
-.main_content{width:960px; margin:auto; box-shadow:0 0 8px rgba(0,0,0,.3);}
+.main_content{width:960px; margin:auto; padding:15px 0; box-shadow:0 0 8px rgba(0,0,0,.3);}
+.wedding_cover{width:350px;margin-top:20px; height:auto;}
 
 
 .tc{text-align:center;}
