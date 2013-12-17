@@ -125,7 +125,7 @@
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="wedding_list">
 					<% if (weddings){ %>
 						<% weddings.forEach(function(wedding){ %>
 							<tr>
@@ -232,11 +232,26 @@
 		
 		query.find({
 			success: function(results){
+				var _html = '';
+				var tpl = ['<tr>',
+							'<td>%sweetCode%</td>',
+							'<td><a title="%boy%&%girl%" data-lightbox="demo" href="%img%"><img style="width:90px;" alt="" class="img-polaroid" src="%img%"></a></td>',
+							'<td>%boy%&%girl%</td>',
+							'<td>%time%</td>',
+							'<td><a href="./wedding?id=%id%">编辑</a><a data-toggle="modal" role="button" class="del_wedding" href="#del_confirm?id=%id%">删除</a></td>',
+							'</tr>'
+							].join('');
 				for (var i=0,len=results.length; i<len; i++){
 					var obj = results[i];
 					var id = obj.id;
-					console.log(id);
+					var couple =  obj.get('couple');
+					var boy = couple.get('boy');
+					var girl = couple.get('girl');
+					var time = obj.get('holdAt');
+					var img = couple.get('weddingcover').url()
+					_html += createTpl(tpl,{id:id,img:img,boy:boy,girl:girl,sweetCode:sweetCode,time:time});
 				}
+				$('#wedding_list').html(_html);
 			},
 			error: function(error){
 				console.log(error);
