@@ -236,7 +236,7 @@
 							'<td><a title="%boy%&%girl%" data-lightbox="demo" href="%img%"><img style="width:90px;" alt="" class="img-polaroid" src="%img%?imageView/2/w/100"></a></td>',
 							'<td>%boy%&%girl%</td>',
 							'<td>%time%</td>',
-							'<td><a href="./wedding?id=%id%">编辑</a><a data-toggle="modal" role="button" class="del_wedding" href="#del_confirm?id=%id%">删除</a></td>',
+							'<td><a href="./wedding?id=%id%">编辑</a><a data-toggle="modal" role="button" class="del_wedding ml20" href="#del_confirm?id=%id%">删除</a></td>',
 							'</tr>'
 							].join('');
 				for (var i=0,len=results.length; i<len; i++){
@@ -245,7 +245,7 @@
 					var couple =  obj.get('couple');
 					var boy = couple.get('boy');
 					var girl = couple.get('girl');
-					var time = obj.get('holdAt');
+					var time = obj.get('holdAt').toLocaleString();
 					var sweetCode = obj.get('sweetcode');
 					var img = couple.get('weddingcover').url()
 					_html += createTpl(tpl,{id:id,img:img,boy:boy,girl:girl,sweetCode:sweetCode,time:time});
