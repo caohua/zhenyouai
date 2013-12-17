@@ -99,96 +99,41 @@
 					</div>
 					<div class="tab-pane" id="panel-2">
 						<div class="row-fluid">
-							<div class="span3">
-								<ul class="photo_list">
-									<li>
-										快乐星期四
-									</li>
-									<li>
-										天赐良缘
-									</li>
-									<li>
-										爱的见证
-									</li>
-								</ul>
-				
-								<a id="modal-695810" href="#modal-container-695810" role="button" class="btn" data-toggle="modal">创建相册</a>
-								
-								<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-header">
-										 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-										<h3 id="myModalLabel">
-											创建相册
-										</h3>
-										
-									</div>
-									<div class="modal-body">
-											<form class="form-horizontal">
-												<div class="control-group">
-													<label class="control-label">相册名称：</label>
-													<div class="controls">
-														<input type="text" placeholder="输入相册名称">
-													</div>
-												</div>
-											</form>
-									</div>
-									<div class="modal-footer tc">
-										<button class="btn btn-primary" data-loading-text="正在加载">创建</button>
-									</div>
-								</div>
-								
-							</div>
-							
-							<div class="span9">
+							<div class="span12">
 								<div class="photo_box">
 									<div class="photos_opera">
-										<a id="modal-695811" href="#modal-container-695811" role="button" class="btn ml20" data-toggle="modal">上传照片</a>
-										<span class="ml20">共20张</span>
-										
-										<div id="modal-container-695811" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+	
+										<a id="modal-695810" href="#modal-container-695810" role="button" class="btn ml20" data-toggle="modal">创建相册</a>
+										<span class="ml20">共5个</span>
+										<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-header">
 												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-												<h3 id="myModalLabel2">
-													上传照片
+												<h3 id="myModalLabel">
+													创建相册
 												</h3>
 												
 											</div>
 											<div class="modal-body">
-													<div class="alert alert-info">
-														<strong>警告!</strong> 请注意你的个人隐私安全.
-													</div>
 													<form class="form-horizontal">
 														<div class="control-group">
+															<label class="control-label">相册名称：</label>
 															<div class="controls">
-																<input type="file" placeholder="选择图片">
+																<input type="text" placeholder="输入相册名称">
 															</div>
 														</div>
 													</form>
 											</div>
 											<div class="modal-footer tc">
-												<button class="btn btn-primary" data-loading-text="正在加载">上传</button>
+												<button class="btn btn-primary" data-loading-text="正在加载">创建</button>
 											</div>
 										</div>
 										
+										
+										
 									</div>
 									<div class="photos">
-										<ul>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+										<ul class="photo_list" id="photo_list">
+											<li>没有相册，请添加！</li>
 										</ul>
 									</div>
 								</div>
@@ -267,7 +212,10 @@
 								<label class="control-label">地址：</label>
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>"/>
-									
+									<video width="600" height="350" controls="controls" class="video mt20">  
+										<source src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
+										您的浏览器不支持video标签  
+									</video>
 								</div>
 							</div>
 							<div class="control-group">
@@ -299,6 +247,46 @@
 </script>
     <script type="text/javascript">
 	var weddingId = '<%= id%>';
+	
+	function createTpl(str, cfg) {
+		var _re = /(%([\w]+?)%)/g;
+		
+		return str.replace(_re, function() {
+			var _val = cfg[arguments[2]]+'';
+			if(typeof _val == 'undefined') {
+				_val = '';
+			}
+			return _val;
+		});
+	}
+	
+	function init(){
+		var Category = AV.Object.extend('Category');
+		var queryPhoto = new AV.Query(Category);
+		queryPhoto.equalTo("weddingId", weddingId);
+		
+		queryPhoto.find({
+		  success: function(results) {
+			var _html = '';
+			var tpl = '<li id="%id%"><p><a href="./category?id=%id%">%title%</a></p><a href="./category?id=%id%"><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+			for (var i=0,len=results.length; i<len; i++){
+				var obj = results[i];
+				var id = obj.id;
+				var title = obj.get('title');
+				var img = obj.get('cover').url();
+				_html += createTpl(tpl,{id:id,title:title,img:img});
+			}
+			$('#photo_list').html(_html);
+		  },
+		  error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		  }
+		});
+		
+	}
+	
+	init();
+	
 	$('#upload_wedding_cover').bind('click',function(){
 		var fileUploadControl = $('#wedding_cover')[0];
 		if (fileUploadControl.files.length > 0){

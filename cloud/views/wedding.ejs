@@ -118,13 +118,19 @@
 														<div class="control-group">
 															<label class="control-label">相册名称：</label>
 															<div class="controls">
-																<input type="text" placeholder="输入相册名称">
+																<input type="text" placeholder="输入相册名称" id="category_name">
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label">相册封面：</label>
+															<div class="controls">
+																<input type="file" placeholder="输入相册封面" id="category_cover">
 															</div>
 														</div>
 													</form>
 											</div>
 											<div class="modal-footer tc">
-												<button class="btn btn-primary" data-loading-text="正在加载">创建</button>
+												<button class="btn btn-primary" data-loading-text="正在加载" id="create_category">创建</button>
 											</div>
 										</div>
 										
@@ -287,6 +293,13 @@
 	
 	init();
 	
+	//创建相册
+	$('#create_category').live('click',function(){
+		alert('sss');
+		return false;
+	});
+	
+	//上传封面
 	$('#upload_wedding_cover').bind('click',function(){
 		var fileUploadControl = $('#wedding_cover')[0];
 		if (fileUploadControl.files.length > 0){
