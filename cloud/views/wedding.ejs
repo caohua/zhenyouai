@@ -219,7 +219,7 @@
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>"/>
 									<video width="600" height="350" controls="controls" class="video mt20">  
-										<source src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
+										<source id="video_src" src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
 										您的浏览器不支持video标签  
 									</video>
 								</div>
@@ -350,6 +350,31 @@
 			location.set('traffic',traffic);
 			location.save(null,{
 				success:function(){alert('保存成功')},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存视频
+	$('#save_wedding_vedio').bind('click',function(){
+		var video = $('#video').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(wedding);
+			var video = wedding.get('video');
+			video.save(null,{
+				success:function(video){
+					alert('保存成功');
+					$('#video_src').attr('src',video.get('videoURL'))
+				},
 				error:function(){alert('保存失败')}
 			});
 		  },
