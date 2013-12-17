@@ -314,6 +314,13 @@
 		query.get(coupleId, {
 		  success: function(couple) {
 			console.log(couple);
+			couple.set('boyIntro',boyIntro);
+			couple.set('girlIntro',girlIntro);
+			couple.set('loveStory',loveStory);
+			couple.save(null,{
+				success:function(){alert('保存成功')},
+				error:function(){alert('保存失败')}
+			});
 		  },
 		  error: function(object, error) {
 		  }
