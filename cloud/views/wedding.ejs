@@ -114,7 +114,7 @@
 												
 											</div>
 											<div class="modal-body">
-													<form class="form-horizontal">
+													<form class="form-horizontal" id="create_category_form">
 														<div class="control-group">
 															<label class="control-label">相册名称：</label>
 															<div class="controls">
@@ -293,9 +293,27 @@
 	
 	init();
 	
+	function uploadImage(fileController,callback){
+		var fileUploadControl = fileController[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				callback && callback(file);
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	}
 	//创建相册
-	$('#create_category').live('click',function(){
+	$('#create_category').on('click',function(){
 		alert('sss');
+		uploadImage($('#category_cover'),function(file){
+			console.log(file);
+		});
 		return false;
 	});
 	
