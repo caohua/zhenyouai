@@ -102,34 +102,7 @@
 							<div class="span12">
 								<div class="photo_box">
 									<div class="photos_opera">
-										<!-- <a id="modal-695811" href="#modal-container-695811" role="button" class="btn ml20" data-toggle="modal">上传照片</a>
-										<div id="modal-container-695811" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-											<div class="modal-header">
-												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-												<h3 id="myModalLabel2">
-													上传照片
-												</h3>
-												
-											</div>
-											<div class="modal-body">
-													<div class="alert alert-info">
-														<strong>警告!</strong> 请注意你的个人隐私安全.
-													</div>
-													<form class="form-horizontal">
-														<div class="control-group">
-															<div class="controls">
-																<input type="file" placeholder="选择图片">
-															</div>
-														</div>
-													</form>
-											</div>
-											<div class="modal-footer tc">
-												<button class="btn btn-primary" data-loading-text="正在加载">上传</button>
-											</div>
-										</div> -->
-										
-										
-										
+	
 										<a id="modal-695810" href="#modal-container-695810" role="button" class="btn ml20" data-toggle="modal">创建相册</a>
 										<span class="ml20">共5个</span>
 										<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -239,7 +212,7 @@
 								<label class="control-label">地址：</label>
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>"/>
-									<video width="600" height="350" controls="controls" class="mt20">  
+									<video width="600" height="350" controls="controls" class="video mt20">  
 										<source src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
 										您的浏览器不支持video标签  
 									</video>
@@ -295,7 +268,7 @@
 		queryPhoto.find({
 		  success: function(results) {
 			var _html = '';
-			var tpl = '<li id="%id%"><p><a href="./category?id=<%id%>">%title%</a></p><a href="./category?id=<%id%>"><img class="img-polaroid" src="%img%" alt="" /></a></li>';
+			var tpl = '<li id="%id%"><p><a href="./category?id=%id%">%title%</a></p><a href="./category?id=<%id%>"><img class="img-polaroid" src="%img%" alt="" /></a></li>';
 			for (var i=0,len=results.length; i<len; i++){
 				var obj = results[i];
 				var id = obj.id;

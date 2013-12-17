@@ -64,7 +64,11 @@ app.get('/wedding',function(req,res){
 			res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
 		 }
 	});
-//	res.render('wedding',{id:id,userName:'阿树1'});
+});
+
+app.get('/category',function(req,res){
+	var id = req.query.id;
+	res.render('category',{id:id,userName:'阿树1'});
 });
 
 app.get('/',function(req,res){
