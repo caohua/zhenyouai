@@ -59,8 +59,10 @@
 <div class="container-fluid main_content">
 	<div class="row-fluid">
 		<div class="span12">
+			<div class="tr">
+				<a id="modal-695810" href="#modal-container-695810" role="button" class="btn btn-info" data-toggle="modal">创建婚礼</a>
+			</div>
 			
-			<a id="modal-695810" href="#modal-container-695810" role="button" class="btn" data-toggle="modal">创建婚礼</a>
 			
 			<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
@@ -144,7 +146,7 @@
 									<a href="#del_confirm" class="del_wedding" role="button" data-toggle="modal">删除</a>
 								</td>
 							</tr>
-						
+							<p><%= JSON.stringify(wedding)%></p>
 					<%	})%>
 					<% }%>
 					
@@ -168,7 +170,7 @@
 				</div>
 			</div>
 			
-			<div class="pagination">
+			<div class="pagination fr">
 				<ul>
 					<li>
 						<a href="#">上一页</a>
