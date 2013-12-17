@@ -238,13 +238,13 @@
 							<div class="control-group">
 								<label class="control-label">时间：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker" value="wedding.get('location').get('time') %>"/>
+									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker" value="<%= wedding.get('location').get('time') %>"/>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">地点：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="宴会地点" id="address" value="wedding.get('location').get('address') %>"/>
+									<input type="text" class="input-xxlarge" placeholder="宴会地点" id="address" value="<%= wedding.get('location').get('address') %>"/>
 								</div>
 							</div>
 							<div class="control-group">
@@ -266,7 +266,8 @@
 							<div class="control-group">
 								<label class="control-label">地址：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="地址" />
+									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURl')%>"/>
+									
 								</div>
 							</div>
 							<div class="control-group">
