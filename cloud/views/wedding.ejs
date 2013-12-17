@@ -267,7 +267,10 @@
 								<label class="control-label">地址：</label>
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>"/>
-									
+									<video width="600" height="350" controls="controls">  
+										<source src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
+										您的浏览器不支持video标签  
+									</video>
 								</div>
 							</div>
 							<div class="control-group">
