@@ -166,12 +166,12 @@
 							<div class="control-group">
 								<label class="control-label">相识相知：</label>
 								<div class="controls">
-									<textarea rows="3"  class="input-xxlarge" id="love_story"><%= wedding.get('couple').get('loveStroy')%></textarea>
+									<textarea rows="3"  class="input-xxlarge" id="love_story" style="height:170px;"><%= wedding.get('couple').get('loveStroy')%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn">保存</button>
+									<button type="submit" class="btn" id="save_couple_info">保存</button>
 								</div>
 							</div>
 						</form>
@@ -206,7 +206,7 @@
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn">保存</button>
+									<button type="submit" class="btn" id="save_wedding_info">保存</button>
 								</div>
 							</div>
 						</form>
@@ -226,7 +226,7 @@
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn">保存</button>
+									<button type="submit" class="btn" id="save_wedding_vedio">保存</button>
 								</div>
 							</div>
 						</form>
@@ -253,6 +253,7 @@
 </script>
     <script type="text/javascript">
 	var weddingId = '<%= id%>';
+	var coupleId = '<%= wedding.get('couple').id %>';
 	var CATEGORY_NUM = 0;
 	
 	function createTpl(str, cfg) {
@@ -301,6 +302,15 @@
 	}
 	
 	init();
+	
+	//保存新娘新郎信息
+	$('#save_couple_info').bind('click',function(){
+		var boyIntro = $('#boy_intro').val();
+		var girlIntro = $('#girl_intro').val();
+		var loveStory = $('#love_story').val();
+		
+		
+	});
 	
 	function uploadImage(fileController,callback){
 		var fileUploadControl = fileController[0];
