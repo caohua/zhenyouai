@@ -53,14 +53,17 @@ app.get('/register',function(req,res){
 app.get('/wedding',function(req,res){
 	var id = req.query.id;
 	var Wedding = AV.Object.extend('Wedding');
-        var query = new AV.Query(Wedding);
+    var query = new AV.Query(Wedding);
 	query.include("couple");
+	query.include("flow");
+	query.include("video");
+	query.include("location");
 
-        query.get(id,{
-             success: function(wedding){
-		res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
-       	     }
-        });
+	query.get(id,{
+		 success: function(wedding){
+			res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
+		 }
+	});
 //	res.render('wedding',{id:id,userName:'阿树1'});
 });
 

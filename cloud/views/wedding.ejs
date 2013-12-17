@@ -231,7 +231,8 @@
 							<div class="control-group">
 								<label class="control-label">坐标：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="地点坐标" />
+									<input type="text" class="input-medium" id="latitude" placeholder="地点坐标-纬度" value="<%= wedding.get('location').get('latitude') %>" />
+									<input type="text" class="input-medium" id="longitude" placeholder="地点坐标-经度" value="<%= wedding.get('location').get('longitude') %>" />
 								</div>
 							</div>
 							<div class="control-group">
