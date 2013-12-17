@@ -7,6 +7,8 @@
 <link href="/css/style.css" rel="stylesheet" media="screen">
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="/css/style.css" rel="stylesheet" media="screen">
+<link href="/js/lightbox/css/lightbox.css" rel="stylesheet" />
+
 </head>
 <body>
 <div class="container" style="width:700px;">
@@ -46,6 +48,7 @@
 </div>
 <input type="hidden" id="wedding_id" value="<%= id %>">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/js/lightbox/js/lightbox-2.6.min.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cn.avoscloud.com/scripts/lib/av-0.2.7.min.js"></script>
 <script type="text/javascript">
@@ -74,7 +77,7 @@
 		queryPhoto.find({
 		  success: function(results) {
 			var _html = '';
-			var tpl = '<li id="%id%"><a href="#"><img class="img-polaroid" src="%img%" alt="" /></a></li>';
+			var tpl = '<li id="%id%"><a href="%img%"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
 			for (var i=0,len=results.length; i<len; i++){
 				var obj = results[i];
 				var id = obj.id;
