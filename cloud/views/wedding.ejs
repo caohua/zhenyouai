@@ -253,6 +253,7 @@
 </script>
     <script type="text/javascript">
 	var weddingId = '<%= id%>';
+	var CATEGORY_NUM = 0;
 	
 	function createTpl(str, cfg) {
 		var _re = /(%([\w]+?)%)/g;
@@ -289,6 +290,7 @@
 				_html += initCategoryTpl({id:id,title:title,img:img});
 			}
 			$('#category_num').text(len);
+			CATEGORY_NUM = len;
 			$('#photo_list').html(_html);
 		  },
 		  error: function(error) {
@@ -332,7 +334,6 @@
 			category.set('weddingId',weddingId);
 			category.save(null,{
 				success:function(category){
-					alert('创建成功');
 					$('.close').click();
 					var id = category.id;
 					var title = category.get('title');
@@ -340,7 +341,8 @@
 					var id = category.id;
 					var node = initCategoryTpl({id:id,title:title,img:img});
 					$(node).appendTo($('#photo_list'));
-					console.log(category);
+					CATEGORY_NUM++;
+					$('#category_num').text(CATEGORY_NUM);
 				},
 				error:function(){
 					
