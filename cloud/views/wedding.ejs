@@ -370,6 +370,7 @@
 		  success: function(wedding) {
 			console.log(wedding);
 			var video = wedding.get('video');
+			video.set('videoURL',video);
 			video.save(null,{
 				success:function(video){
 					alert('保存成功');
