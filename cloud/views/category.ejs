@@ -27,16 +27,16 @@
 						<div class="alert alert-info">
 							<strong>警告!</strong> 请注意你的个人隐私安全.
 						</div>
-						<form class="form-horizontal">
+						<form class="form-horizontal" id="photo_form">
 							<div class="control-group">
 								<div class="controls">
-									<input type="file" placeholder="选择图片">
+									<input type="file" placeholder="选择图片" id="photo">
 								</div>
 							</div>
 						</form>
 				</div>
 				<div class="modal-footer tc">
-					<button class="btn btn-primary" data-loading-text="正在加载">上传</button>
+					<button class="btn btn-primary" data-loading-text="正在加载" id="upload_photo">上传</button>
 				</div>
 			</div> 
 			
@@ -55,7 +55,7 @@
         AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
     <script type="text/javascript">
-	var cateyoryId = '<%= id%>';
+	var categoryId = '<%= id%>';
 	
 	function createTpl(str, cfg) {
 		var _re = /(%([\w]+?)%)/g;
@@ -69,20 +69,67 @@
 		});
 	}
 	
+	function initPhotoTpl(conf){
+		var tpl = '<li id="%id%"><a href="%img%"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+		var str = createTpl(tpl,conf);
+		return str;
+	}
+	
+	function uploadImage(fileController,callback){
+		var fileUploadControl = fileController[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				callback && callback(file);
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	}
+	
+	//创建相册
+	$('#upload_photo').on('click',function(){
+		uploadImage($('#photo'),function(file){
+			var fileId = file.id;
+			var Photo = AV.Object.extend('Photo');
+			var photo = new Photo();
+			photo.set('categoryId',categoryId);
+			photo.set('image',file);
+			photo.save(null,{
+				success:function(photo){
+					$('.close').click();
+					var id = photo.id;
+					var img = photo.get('image').url();
+					var node = initPhotoTpl({id:id,img:img});
+					$(node).appendTo($('#photo_list'));
+					$('#photo_form')[0].reset();
+				},
+				error:function(){
+					
+				},
+			});
+		});
+		return false;
+	});
+	
 	function init(){
 		var Photo = AV.Object.extend('Photo');
 		var queryPhoto = new AV.Query(Photo);
-		queryPhoto.equalTo("categoryId", cateyoryId);
+		queryPhoto.equalTo("categoryId", categoryId);
 		
 		queryPhoto.find({
 		  success: function(results) {
 			var _html = '';
-			var tpl = '<li id="%id%"><a href="%img%"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+			
 			for (var i=0,len=results.length; i<len; i++){
 				var obj = results[i];
 				var id = obj.id;
 				var img = obj.get('image').url();
-				_html += createTpl(tpl,{id:id,img:img});
+				_html += initPhotoTpl({id:id,img:img});
 			}
 			$('#photo_list').html(_html);
 		  },
