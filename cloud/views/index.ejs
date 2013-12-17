@@ -133,7 +133,7 @@
 									<%= wedding.get('sweetcode') %>
 								</td>
 								<td>
-									<a href="<%= wedding.get('couple').get('weddingcover').url() %>" data-lightbox="demo" title="<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>"><img src="<%= wedding.get('couple').get('weddingcover').url() %>" class="img-polaroid" alt="" style="width:90px;" /></a>
+									<a href="<%= wedding.get('couple').get('weddingcover').url() %>" data-lightbox="demo" title="<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>"><img src="<%= wedding.get('couple').get('weddingcover').url() %>" class="img-polaroid" alt="" style="width:100px;" /></a>
 								</td>
 								<td>
 									<%= wedding.get('couple').get('boy') %>& <%= wedding.get('couple').get('girl') %>
@@ -142,9 +142,6 @@
 									<%= wedding.get('holdAt') %>
 								</td>
 								<td>
-									<%= wedding.objectId %>
-									<%= wedding.updatedAt %>
-									<%= wedding.createdAt %>
 									<a href="./wedding?id=<%= wedding.objectId %>">编辑</a>
 									<a href="#del_confirm" class="del_wedding" role="button" data-toggle="modal">删除</a>
 								</td>
@@ -235,7 +232,7 @@
 				var _html = '';
 				var tpl = ['<tr>',
 							'<td>%sweetCode%</td>',
-							'<td><a title="%boy%&%girl%" data-lightbox="demo" href="%img%"><img style="width:90px;" alt="" class="img-polaroid" src="%img%"></a></td>',
+							'<td><a title="%boy%&%girl%" data-lightbox="demo" href="%img%"><img style="width:90px;" alt="" class="img-polaroid" src="%img%?imageView/2/w/100"></a></td>',
 							'<td>%boy%&%girl%</td>',
 							'<td>%time%</td>',
 							'<td><a href="./wedding?id=%id%">编辑</a><a data-toggle="modal" role="button" class="del_wedding" href="#del_confirm?id=%id%">删除</a></td>',
