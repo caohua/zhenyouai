@@ -210,6 +210,39 @@
 	AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
 <script type="text/javascript">
+	function createTpl(str, cfg) {
+		var _re = /(%([\w]+?)%)/g;
+		
+		return str.replace(_re, function() {
+			var _val = cfg[arguments[2]]+'';
+			if(typeof _val == 'undefined') {
+				_val = '';
+			}
+			return _val;
+		});
+	}
+	
+	function init(){
+		var Wedding = AV.Object.extend('Wedding');
+		var query = new AV.Query(Wedding);
+		query.skip(0);
+		query.limit(10);
+		query.descending('createdAt');
+		query.include("couple");
+		
+		query.find({
+			success: function(results){
+				console.log(results);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+		
+	}
+	
+	init();
+
 	$('#add_wedding_form').submit(function(){
 
 		var boy = $('#boy').val();
