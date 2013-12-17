@@ -332,8 +332,8 @@
 	//保存地点信息
 	$('#save_wedding_info').bind('click',function(){
 		var time = $('#datePicker').val();
-		var latitude = $('#latitude').val();
-		var longitude = $('#longitude').val();
+		var latitude = parseFloat($('#latitude').val());
+		var longitude = parseFloat($('#longitude').val());
 		var address = $('#address').val();
 		var traffic = $('#traffic').val();
 		
