@@ -38,13 +38,7 @@
 				</div>
 			</div> 
 			
-			<ul class="photos">
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
-				<li><img class="img-polaroid" src="./images/demo/demo1.jpg" /></li>
+			<ul class="photos" id="photo_list">
 			</ul>
 			
 		</div>
@@ -58,7 +52,7 @@
         AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
     <script type="text/javascript">
-	var weddingId = '<%= id%>';
+	var cateyoryId = '<%= id%>';
 	
 	function createTpl(str, cfg) {
 		var _re = /(%([\w]+?)%)/g;
@@ -73,7 +67,26 @@
 	}
 	
 	function init(){
-	
+		var Photo = AV.Object.extend('Photo');
+		var queryPhoto = new AV.Query(Photo);
+		queryPhoto.equalTo("categoryId", cateyoryId);
+		
+		queryPhoto.find({
+		  success: function(results) {
+			var _html = '';
+			var tpl = '<li id="%id%"><a href="#"><img class="img-polaroid" src="%img%" alt="" /></a></li>';
+			for (var i=0,len=results.length; i<len; i++){
+				var obj = results[i];
+				var id = obj.id;
+				var img = obj.get('image').url();
+				_html += createTpl(tpl,{id:id,title:title,img:img});
+			}
+			$('#photo_list').html(_html);
+		  },
+		  error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		  }
+		});
 		
 	}
 	
