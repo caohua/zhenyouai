@@ -130,7 +130,7 @@
 										
 										
 										
-										<a id="modal-695810" href="#modal-container-695810" role="button" class="btn" data-toggle="modal">创建相册</a>
+										<a id="modal-695810" href="#modal-container-695810" role="button" class="btn ml20" data-toggle="modal">创建相册</a>
 										<span class="ml20">共5个</span>
 										<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-header">
@@ -295,7 +295,7 @@
 		queryPhoto.find({
 		  success: function(results) {
 			var _html = '';
-			var tpl = '<li id="%id%"><p>%title%</p><img class="img-polaroid" src="%img%" alt="" /></li>';
+			var tpl = '<li id="%id%"><p><a href="./category?id=<%id%>">%title%</a></p><a href="./category?id=<%id%>"><img class="img-polaroid" src="%img%" alt="" /></a></li>';
 			for (var i=0,len=results.length; i<len; i++){
 				var obj = results[i];
 				var id = obj.id;

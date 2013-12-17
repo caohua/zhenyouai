@@ -3,9 +3,9 @@
 .login_ad{width:100%; margin-bottom:30px;}
 .wedding_list td,.wedding_list th{vertical-align: middle; text-align:center;}
 
-.photo_list{width:100%; border:1px solid #ccc; background:#fff; padding:10px 20px; list-style:none; margin-left:0;}
+.photo_list{width:100%;background:#fff; padding:10px 20px; list-style:none; margin-left:0;}
 .photo_box{border:1px solid #ccc; background:#fff; margin-left:20px;}
-.photo_list li{margin-bottom:10px; line-height:24px; border-bottom:1px solid #ccc;}
+.photo_list li{margin-bottom:10px; line-height:24px; border-bottom:1px solid #ccc; text-align:center;}
 
 .photos{margin:0; overflow:hidden; zoom:1; padding:15px 0;}
 .photos img{width:150px;}
