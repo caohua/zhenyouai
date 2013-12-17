@@ -79,7 +79,7 @@
 				var obj = results[i];
 				var id = obj.id;
 				var img = obj.get('image').url();
-				_html += createTpl(tpl,{id:id,title:title,img:img});
+				_html += createTpl(tpl,{id:id,img:img});
 			}
 			$('#photo_list').html(_html);
 		  },
