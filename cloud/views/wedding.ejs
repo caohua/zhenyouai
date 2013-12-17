@@ -309,7 +309,17 @@
 		var girlIntro = $('#girl_intro').val();
 		var loveStory = $('#love_story').val();
 		
+		var Couple = AV.Object.extend("Couple");
+		var query = new AV.Query(Couple);
+		query.get(coupleId, {
+		  success: function(couple) {
+			console.log(couple);
+		  },
+		  error: function(object, error) {
+		  }
+		});
 		
+		return false;
 	});
 	
 	function uploadImage(fileController,callback){
