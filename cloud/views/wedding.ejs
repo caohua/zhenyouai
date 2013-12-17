@@ -166,7 +166,7 @@
 							<div class="control-group">
 								<label class="control-label">相识相知：</label>
 								<div class="controls">
-									<textarea rows="3"  class="input-xxlarge" id="love_story"><%= wedding.get('couple').get('loveStory')%></textarea>
+									<textarea rows="3"  class="input-xxlarge" id="love_story"><%= wedding.get('couple').get('loveStroy')%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
@@ -268,7 +268,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><p><a href="./category?id=%id%">%title%</a></p><a href="./category?id=%id%"><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+		var tpl = '<li class="photo1" id="%id%"><p><a href="./category?id=%id%">%title%</a></p><a href="./category?id=%id%"><img class="img" src="%img%?imageView/2/w/300" alt="" /></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
