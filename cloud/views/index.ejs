@@ -141,12 +141,13 @@
 								<td>
 									<%= wedding.get('holdAt') %>
 								</td>
-								<td><%= wedding["objectId"] %>
-									<a href="./wedding?id=<%= wedding.objectId %>">编辑</a>
+								<td><%= wedding["updatedAt"] %>
+								<td><%= wedding.get('updatedAt') %>
+									<a href="./wedding?id=<%= wedding.updatedAt %>">编辑</a>
 									<a href="#del_confirm" class="del_wedding" role="button" data-toggle="modal">删除</a>
 								</td>
 							</tr>
-							<p><%= JSON.stringify(wedding)%></p>
+							<p style="display:none;"><%= JSON.stringify(wedding)%></p>
 					<%	})%>
 					<% }%>
 					
