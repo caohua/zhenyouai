@@ -341,8 +341,8 @@
 		var query = new AV.Query(Wedding);
 		query.get(weddingId, {
 		  success: function(wedding) {
-			console.log(Wedding);
-			var location = location.get('location');
+			console.log(wedding);
+			var location = wedding.get('location');
 			location.set('time',time);
 			location.set('latitude',latitude);
 			location.set('longitude',longitude);
