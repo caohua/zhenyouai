@@ -310,9 +310,28 @@
 	}
 	//创建相册
 	$('#create_category').on('click',function(){
-		alert('sss');
+		var categoryName = $('#category_name').val();
+		if (categoryName == ''){
+			alert('请输入相册名称');
+			return false;
+		}
 		uploadImage($('#category_cover'),function(file){
 			console.log(file);
+			var fileId = file.id;
+			var Category = AV.Object.extend('Category');
+			var category = new Category();
+			category.set('title',categoryName);
+			category.set('cover',file);
+			category.set('weddingId',weddingId);
+			category.save(null,{
+				success:function(category){
+					alert('创建成功');
+					console.log(category);
+				},
+				error:function(){
+					
+				},
+			});
 		});
 		return false;
 	});
