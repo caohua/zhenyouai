@@ -232,7 +232,11 @@
 		
 		query.find({
 			success: function(results){
-				console.log(results);
+				for (var i=0,len=results.length; i<len; i++){
+					var obj = results[i];
+					var id = obj.id;
+					console.log(id);
+				}
 			},
 			error: function(error){
 				console.log(error);
@@ -264,18 +268,6 @@
 			success: function(wedding){
 				var id = wedding.id;
 				location.href = "./wedding?id="+id;
-				/*
-				wedding.set('Couple',coupleId);
-				wedding.save(null,{
-					success: function(wedding){
-						console.log(wedding);
-						alert('success');
-					},
-					error: function(wedding,error){
-						alert('Failed to create new object, with error code: ' + error.description);
-					}
-				});
-				*/
 			},
 			error: function(couple,error){
 				alert('Failed to create new object, with error code: ' + error.description);
