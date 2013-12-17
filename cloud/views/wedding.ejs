@@ -316,8 +316,39 @@
 			console.log(couple);
 			couple.set('boyIntro',boyIntro);
 			couple.set('girlIntro',girlIntro);
-			couple.set('loveStory',loveStory);
+			couple.set('loveStroy',loveStory);
 			couple.save(null,{
+				success:function(){alert('保存成功')},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存地点信息
+	$('#save_wedding_info').bind('click',function(){
+		var time = $('#datePicker').val();
+		var latitude = $('#latitude').val();
+		var longitude = $('#longitude').val();
+		var address = $('#address').val();
+		var traffic = $('#traffic').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(Wedding);
+			var location = location.get('location');
+			location.set('time',time);
+			location.set('latitude',latitude);
+			location.set('longitude',longitude);
+			location.set('address',address);
+			location.set('traffic',traffic);
+			location.save(null,{
 				success:function(){alert('保存成功')},
 				error:function(){alert('保存失败')}
 			});
