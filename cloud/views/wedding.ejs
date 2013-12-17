@@ -159,12 +159,8 @@
 										
 									</div>
 									<div class="photos">
-										<ul>
-											<li><p>2222222</p><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
-											<li><img class="img-polaroid" src="http://zhenyouai.avosapps.com/images/demo/demo1.jpg" alt="" /></li>
+										<ul class="photo_list" id="photo_list">
+											<li>没有相册，请添加！</li>
 										</ul>
 									</div>
 								</div>
@@ -279,6 +275,18 @@
     <script type="text/javascript">
 	var weddingId = '<%= id%>';
 	
+	function createTpl(str, cfg) {
+		var _re = /(%([\w]+?)%)/g;
+		
+		return str.replace(_re, function() {
+			var _val = cfg[arguments[2]]+'';
+			if(typeof _val == 'undefined') {
+				_val = '';
+			}
+			return _val;
+		});
+	}
+	
 	function init(){
 		var Category = AV.Object.extend('Category');
 		var queryPhoto = new AV.Query(Category);
@@ -286,7 +294,16 @@
 		
 		queryPhoto.find({
 		  success: function(results) {
-			console.log(results);
+			var _html = '';
+			var tpl = '<li id="%id%"><p>%title%</p><img class="img-polaroid" src="%img%" alt="" /></li>';
+			for (var i=0,len=results.length; i<len; i++){
+				var obj = results[i];
+				var id = obj.id;
+				var title = obj.get('title');
+				var img = obj.get('cover').url();
+				_html += createTpl(tpl,{id:id,title:title,img:img});
+			}
+			$('#photo_list').html(_html);
 		  },
 		  error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
