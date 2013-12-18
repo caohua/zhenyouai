@@ -340,13 +340,13 @@
 </div>
 
 <!-- show category Modal -->
-<div id="category_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="category_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="category_title" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">相册</h3>
+		<h3 id="category_title">相册</h3>
 	</div>
 	<div class="modal-body">
-		<iframe src="#" frameborder="0" name="show_category" style="height:500px; width:100%;"></iframe>
+		<iframe src="#" frameborder="0" id="show_category_frame" style="height:500px; width:100%;"></iframe>
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
@@ -382,7 +382,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><p><a href="./category?id=%id%" class="show_category" target="show_category">%title%</a></p><a href="./category?id=%id%"><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+		var tpl = '<li id="%id%"><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
@@ -409,6 +409,10 @@
 			CATEGORY_NUM = len;
 			$('#photo_list').html(_html);
 			$('#photo_list').find('.show_category').bind('click',function(){
+				var url = $(this).attr('href');
+				var title = $(this).attr('title');
+				$('#category_title').text(title);
+				$('#show_category_frame').attr('src',url);
 				$('#category_modal').modal()
 				return false;
 			});
