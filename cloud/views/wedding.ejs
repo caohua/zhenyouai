@@ -321,12 +321,12 @@
 							<div class="control-group">
 								<label class="control-label">内容：</label>
 								<div class="controls">
-									<textarea name="" id="editor" style="width:700px; height:300px;"></textarea>
+									<textarea name="" id="editor" style="width:700px; height:300px;"><%= wedding.get('flow').get('content')%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn" id="save_invite_message">保存</button>
+									<button type="submit" class="btn" id="save_flow">保存</button>
 								</div>
 							</div>
 						</form>
@@ -474,6 +474,31 @@
 				success:function(video){
 					alert('保存成功');
 					$('#video_src').attr('src',video.get('videoURL'))
+				},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存流程
+	$('#save_flow').bind('click',function(){
+		var flowTxt = $('#editor').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(wedding);
+			var flow = wedding.get('flow');
+			flow.set('content',flowTxt);
+			flow.save(null,{
+				success:function(video){
+					alert('保存成功');
 				},
 				error:function(){alert('保存失败')}
 			});
