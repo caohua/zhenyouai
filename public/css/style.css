@@ -17,6 +17,15 @@
 .main_content{width:960px; margin:auto; padding:15px 0;}
 .wedding_cover{width:350px;margin-top:20px; height:auto;}
 
+.invite_list{margin:0; padding:0; margin-left:-8px;}
+.invite_list li{width:315px; height:422px; float:left; margin-right:20px; margin-bottom:20px; overflow:hidden; list-style:none; text-align:center; position:relative;}
+.invite_img{position:relative;z-index:1; width:200px; height:auto; margin:30px auto 0 auto;}
+.invite_cover{position:absolute; left:0; top:0; z-index:100;}
+
+.upload_invite{position:absolute; z-index:1000; bottom:70px; left:120px; width:82px; height:30px; overflow:hidden;}
+.upload_invite .btn{position:absolute; left:0; top:0;  }
+.upload_invite input{position:absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0); width:200px; height:200px;}
+
 
 .tc{text-align:center;}
 .tr{text-align:right;}
@@ -26,97 +35,3 @@
 .mt20{margin-top:20px;}
 .fl{float:left;}
 .fr{float:right;}
-
-.photo2{
-		width:150px; 
-		height:225px;
-		border:6px solid #fff;
-		margin-left:30px;
-		float:left;
-		position:relative;
-		box-shadow:2px 2px 5px rgba(0,0,0,0.3);
-	}
-	.photo2 img{
-		width:150px;
-		height:225px;
-	}
-	.photo2:before {
-		content: "";
-		height: 225px; width: 150px;   
-		background: #eff4de;
-		border: 6px solid #fff;
-		position:absolute;
-		left:-10px;
-		top:0px;
-		z-index:-1;
-		-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-o-transform: rotate(-8deg);
-		-ms-transform: rotate(-8deg);
-		-moz-transform: rotate(-8deg);
-		-webkit-transform: rotate(-8deg);
-		transform: rotate(-8deg);
-	}
-	.photo2:after{
-		width:150px;
-		height:225px;
-		background: #eff4de;
-		content:"";
-		border:6px solid #fff;
-		position:absolute;
-		left:-10px;
-		top:0px;
-		z-index:-1;
-		-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-o-transform:rotate(-3deg);
-		-ms-transform:rotate(-3deg);
-		-moz-transform:rotate(-3deg);
-		-webkit-transform:rotate(-3deg);
-		transform:rotate(-3deg);
-	}
-	
-	.photo1{
-		width:150px; 
-		height:225px;
-		border:6px solid #fff;
-		margin-left:50px;
-		float:left;
-		position:relative;
-		box-shadow:2px 2px 5px rgba(0,0,0,0.3);
-	}
-	.photo1 img{
-		width:150px; 
-		height:225px;
-	}
-	.photo1:before {
-		content: "";
-		width:150px; 
-		height:225px;
-		background: #eff4de;
-		border: 6px solid #fff;
-		position:absolute;
-		left:0px;
-		top:4px;
-		z-index:-1;
-		-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-	}
-	.photo1:after{
-		width:150px; 
-		height:225px;
-		background: #eff4de;
-		content:"";
-		border:6px solid #fff;
-		position:absolute;
-		left:0px;
-		top:-1px;
-		z-index:-1;
-		-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-		box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-
-	}
