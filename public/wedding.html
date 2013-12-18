@@ -8,6 +8,9 @@
 <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="./css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" media="screen" href="./bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="./bootstrap/editor/bootstrap-wysihtml5.css"></link>
+<link rel="stylesheet" type="text/css" href="./js/editor/css/prettify.css"></link>
+
 </head>
 <body>
 <div class="navbar">
@@ -346,6 +349,22 @@
 						</form>
 					</div>
 					
+					<div class="tab-pane" id="panel-8">
+						<form class="form-horizontal" >
+							<div class="control-group">
+								<label class="control-label">内容：</label>
+								<div class="controls">
+									<textarea name="" id="editor" style="width:700px; height:300px;"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn" id="save_invite_message">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
 				</div>
 			</div>
 			
@@ -354,9 +373,13 @@
 </div>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="./bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
-    </script>
+<script type="text/javascript" src="./bootstrap/datapicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="js/editor/js/wysihtml5-0.3.0.js"></script>
+<script src="./bootstrap/editor/bootstrap-wysihtml5.js"></script>
     <script type="text/javascript">
+	$('#editor').wysihtml5();
+	/*
       $('#datetimepicker').datetimepicker({
         format: 'MM/dd/yyyy hh:mm',
         language: 'en',
@@ -367,6 +390,7 @@
         secondStep: 30,
         inputMask: false
       });
+	  */
     </script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <link href="./css/style.css" rel="stylesheet" media="screen">
 <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="./css/style.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" type="text/css" media="screen" href="./bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="./bootstrap/datapicker/css/datepicker.css">
 </head>
 <body>
 <div class="navbar">
@@ -222,19 +222,10 @@
 </div>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="./bootstrap/datapicker/js/bootstrap-datetimepicker.min.js">
+ <script type="text/javascript" src="./bootstrap/datapicker/js/bootstrap-datepicker.js">
     </script>
     <script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
-        format: 'MM/dd/yyyy hh:mm',
-        language: 'en',
-        pickDate: true,
-        pickTime: true,
-        hourStep: 1,
-        minuteStep: 15,
-        secondStep: 30,
-        inputMask: false
-      });
+      $('#datetimepicker').datepicker();
     </script>
 </body>
 </html>
