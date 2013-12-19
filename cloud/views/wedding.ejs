@@ -9,6 +9,7 @@
 <link href="/css/style.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet" type="text/css" href="/bootstrap/editor/bootstrap-wysihtml5.css"></link>
+<link rel="stylesheet" href="/player/mediaelementplayer.min.css" />
 </head>
 <body>
 <div class="navbar">
@@ -219,7 +220,13 @@
 								<label class="control-label">地址：</label>
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>"/>
-									<video width="600" height="350" controls="controls" class="video mt20">  
+									<video width="640" height="360" id="player2"  controls="controls" preload="none">
+										<source type="video/mp4" src="<%= wedding.get('video').get('videoURL')%>" />
+										<object width="640" height="360" type="application/x-shockwave-flash" data="/player/flashmediaelement.swf"> 		
+											<param name="movie" value="/player/flashmediaelement.swf" /> 	
+										</object> 	
+									</video>
+									<video width="600" height="350" controls="controls" class="video mt20" style="display:none;">  
 										<source id="video_src" src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
 										您的浏览器不支持video标签  
 									</video>
@@ -357,6 +364,7 @@
 <script src="/js/editor/js/wysihtml5-0.3.0.js"></script>
 <script src="/bootstrap/editor/bootstrap-wysihtml5.js"></script>
 <script src="https://cn.avoscloud.com/scripts/lib/av-0.2.7.min.js"></script>
+<script src="/player/mediaelement-and-player.min.js"></script>
 <script type="text/javascript">
         AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
 </script>
@@ -626,5 +634,10 @@
         inputMask: false
       });
     </script>
+	<script>
+
+$('audio,video').mediaelementplayer();
+
+</script>
 </body>
 </html>
