@@ -280,7 +280,7 @@
 		wedding.save(null,{
 			success: function(wedding){
 				var id = wedding.id;
-				location.href = "./wedding?id="+id;
+				location.href = "./addwedding?id="+id;
 			},
 			error: function(couple,error){
 				alert('Failed to create new object, with error code: ' + error.description);
