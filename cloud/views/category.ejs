@@ -13,7 +13,7 @@
 <body style="background:#fff !important; overflow:hidden;">
 <div style="overflow:hidden;">
 
-	<a id="modal-695811" href="#modal-container-695811" role="button" class="btn btn-info" data-toggle="modal">上传照片</a>
+	<div style="position:fixed; left:0; top:0; padding:10px 0; background:rgba(255,255,255,.8);"><a id="modal-695811" href="#modal-container-695811" role="button" class="btn btn-info" data-toggle="modal">上传照片</a>共<span id="photo_num">0</span>张</div>
 	<div id="modal-container-695811" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
 		<div class="modal-header">
 			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -24,12 +24,12 @@
 		</div>
 		<div class="modal-body">
 				<div class="alert alert-info">
-					<strong>警告!</strong> 请注意你的个人隐私安全.
+					<strong>提示：</strong> 请上传小于3M的照片
 				</div>
 				<form class="form-horizontal" id="photo_form">
 					<div class="control-group">
 						<div class="controls">
-							<input type="file" placeholder="选择图片" id="photo">
+							<input type="file" placeholder="选择照片" id="photo">
 						</div>
 					</div>
 				</form>
@@ -47,10 +47,8 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cn.avoscloud.com/scripts/lib/av-0.2.7.min.js"></script>
 <script type="text/javascript">
-        AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
-</script>
-    <script type="text/javascript">
 	var categoryId = '<%= id%>';
+	var PHOTO_NUM = 0;
 	
 	function createTpl(str, cfg) {
 		var _re = /(%([\w]+?)%)/g;
@@ -102,6 +100,9 @@
 					var node = initPhotoTpl({id:id,img:img});
 					$(node).appendTo($('#photo_list'));
 					$('#photo_form')[0].reset();
+					PHOTO_NUM++;
+					$('#photo_num').text(PHOTO_NUM);
+					
 				},
 				error:function(){
 					
@@ -127,6 +128,7 @@
 				_html += initPhotoTpl({id:id,img:img});
 			}
 			$('#photo_list').html(_html);
+			$('#photo_num').text(len);
 		  },
 		  error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
