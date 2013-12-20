@@ -268,19 +268,34 @@
 		
 		var Wedding =  AV.Object.extend('Wedding');
 		var Couple =  AV.Object.extend('Couple');
+		var Flow =  AV.Object.extend('Flow');
+		var Video =  AV.Object.extend('Video');
+		var Location =  AV.Object.extend('Location');
+		var Invitationcard =  AV.Object.extend('Invitationcard');
+		
+		
 		var wedding = new Wedding();
 		var couple = new Couple();
+		var flow = new Flow();
+		var video = new Video();
+		var location = new Location();
+		var couple = new Couple();
+		var invitationcard = new Invitationcard();
 		
 		couple.set('boy',boy);
 		couple.set('girl',girl);
 	
 		wedding.set('sweetcode','0000000');
 		wedding.set('couple',couple);
+		wedding.set('flow',flow);
+		wedding.set('video',video);
+		wedding.set('location',location);
+		wedding.set('invitationcard',invitationcard);
 		
 		wedding.save(null,{
 			success: function(wedding){
 				var id = wedding.id;
-				location.href = "./addwedding?id="+id;
+				location.href = "./wedding?id="+id;
 			},
 			error: function(couple,error){
 				alert('Failed to create new object, with error code: ' + error.description);
