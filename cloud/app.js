@@ -69,7 +69,15 @@ app.get('/wedding',function(req,res){
 
 app.get('/addwedding',function(req,res){
 	var id = req.query.id;
-	res.render('addwedding',{id:id,userName:'阿树'});
+	var Wedding = AV.Object.extend('Wedding');
+    var query = new AV.Query(Wedding);
+	query.include("couple");
+
+	query.get(id,{
+		 success: function(wedding){
+			res.render('addwedding',{id:id,wedding:wedding,userName:'阿树1'});
+		 }
+	});
 });
 
 app.get('/category',function(req,res){
