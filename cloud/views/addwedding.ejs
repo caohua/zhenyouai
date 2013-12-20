@@ -432,25 +432,34 @@
 		var address = $('#address').val();
 		var traffic = $('#traffic').val();
 		
-		var Wedding = AV.Object.extend("Wedding");
-		var query = new AV.Query(Wedding);
-		query.get(weddingId, {
-		  success: function(wedding) {
-			console.log(wedding);
-			var location = wedding.get('location');
-			location.set('time',time);
-			location.set('latitude',latitude);
-			location.set('longitude',longitude);
-			location.set('address',address);
-			location.set('traffic',traffic);
-			location.save(null,{
-				success:function(){alert('保存成功')},
-				error:function(){alert('保存失败')}
-			});
-		  },
-		  error: function(object, error) {
-		  }
+		var Location = AV.Object.extend('Location');
+		var location = new Location();
+		location.set('time',time);
+		location.set('latitude',latitude);
+		location.set('longitude',longitude);
+		location.set('address',address);
+		location.set('traffic',traffic);
+		location.save(null,{
+			success:function(location){
+				var Wedding = AV.Object.extend("Wedding");
+				var query = new AV.Query(Wedding);
+				query.get(weddingId, {
+				  success: function(wedding) {
+					wedding.set('location',location);
+					wedding.save(null,{
+						success:function(){alert('保存成功')},
+						error:function(){alert('保存失败')},
+					});
+				  },
+				  error: function(object, error) {
+				  }
+				});
+			},
+			error:function(){alert('保存失败')}
 		});
+		
+		
+		
 		
 		return false;
 	});
