@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>珍爱网-首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="/css/style.css" rel="stylesheet" media="screen">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="/css/style.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/datapicker/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/editor/bootstrap-wysihtml5.css"></link>
+<link rel="stylesheet" href="/player/mediaelementplayer.min.css" />
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="#" class="brand">珍爱网</a>
+			<div class="nav-collapse collapse navbar-responsive-collapse">
+				<ul class="nav">
+					<li class="active">
+						<a href="#">主页</a>
+					</li>
+					<li>
+						<a href="#">帮助</a>
+					</li>
+					<li>
+						<a href="#">关于</a>
+					</li>
+				</ul>
+				<ul class="nav pull-right">
+					<li class="divider-vertical">
+					</li>
+					<li class="dropdown">
+						 <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= userName %><strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">用户简介</a>
+							</li>
+							<li>
+								<a href="#">修改密码</a>
+							</li>
+							<li>
+								<a href="#">其他</a>
+							</li>
+							<li class="divider">
+							</li>
+							<li>
+								<a href="#">退出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid main_content">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="tabbable" id="tabs-81246">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-1" data-toggle="tab">婚礼封面</a>
+					</li>
+					<li>
+						<a href="#panel-2" data-toggle="tab">甜蜜婚照</a>
+					</li>
+					<li>
+						<a href="#panel-3" data-toggle="tab">新郎新娘介绍</a>
+					</li>
+					<li>
+						<a href="#panel-4" data-toggle="tab">婚宴日间地点</a>
+					</li>
+					<li>
+						<a href="#panel-5" data-toggle="tab">视频</a>
+					</li>
+					<li>
+						<a href="#panel-6" data-toggle="tab">电子请贴</a>
+					</li>
+					<li>
+						<a href="#panel-7" data-toggle="tab">转发设置</a>
+					</li>
+					<li>
+						<a href="#panel-8" data-toggle="tab">婚礼流程</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-1">
+						<div class="alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong>警告!</strong> 请注意你的个人隐私安全.
+						</div>
+						<div class="form-inline">
+							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
+							<button class="btn" id="upload_wedding_cover">上传</button>
+						</div>
+						<img class="img-polaroid wedding_cover" id="wedding_img" src="" />
+					</div>
+					<div class="tab-pane" id="panel-2">
+						<div class="row-fluid">
+							<div class="span12">
+								<div class="photo_box">
+									<div class="photos_opera">
+	
+										<a id="modal-695810" href="#modal-container-695810" role="button" class="btn ml20" data-toggle="modal">创建相册</a>
+										<span class="ml20">共<span id="category_num">0</span>个</span>
+										<div id="modal-container-695810" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-header">
+												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h3 id="myModalLabel">
+													创建相册
+												</h3>
+												
+											</div>
+											<div class="modal-body">
+													<form class="form-horizontal" id="create_category_form">
+														<div class="control-group">
+															<label class="control-label">相册名称：</label>
+															<div class="controls">
+																<input type="text" placeholder="输入相册名称" id="category_name">
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label">相册封面：</label>
+															<div class="controls">
+																<input type="file" placeholder="输入相册封面" id="category_cover">
+															</div>
+														</div>
+													</form>
+											</div>
+											<div class="modal-footer tc">
+												<button class="btn btn-primary" data-loading-text="正在加载" id="create_category">创建</button>
+											</div>
+										</div>
+										
+										
+										
+									</div>
+									<div class="photos">
+										<ul class="photo_list" id="photo_list">
+											
+										</ul>
+									</div>
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="tab-pane" id="panel-3">
+						<form class="form-horizontal user_intro_form" >
+							<div class="control-group">
+								<label class="control-label">新郎介绍：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge" id="boy_intro"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">新娘介绍：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge" id="girl_intro"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">相识相知：</label>
+								<div class="controls">
+									<textarea rows="3"  class="input-xxlarge" id="love_story" style="height:170px;"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="bttton" class="btn" id="save_couple_info" data-loading-text="正在处理">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-4">
+						<form class="form-horizontal party_intro_form" >
+							<div class="control-group">
+								<label class="control-label">坐标：</label>
+								<div class="controls">
+									<input type="text" class="input-large mr20" id="latitude" style="width:246px;" placeholder="地点坐标-纬度" value="" />
+									<input type="text" class="input-large" id="longitude" style="width:246px;" placeholder="地点坐标-经度" value="" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">时间：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker" value=""/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">地点：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="宴会地点" id="address" value=""/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">交通信息：</label>
+								<div class="controls">
+									<textarea rows="3" class="input-xxlarge" id="traffic"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="button" class="btn" id="save_wedding_info" data-loading-text="正在处理">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-5">
+						<form class="form-horizontal party_intro_form" >
+							<div class="control-group">
+								<label class="control-label">地址：</label>
+								<div class="controls">
+									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="" style="margin-bottom:20px;"/>
+									<video width="640" height="360" id="player2"  controls="controls" preload="none">
+										<source type="video/mp4" src="" />
+										<object width="640" height="360" type="application/x-shockwave-flash" data="/player/flashmediaelement.swf"> 		
+											<param name="movie" value="/player/flashmediaelement.swf" /> 	
+										</object> 	
+									</video>
+									<!--<video width="600" height="350" controls="controls" class="video mt20" style="display:none;">  
+										<source id="video_src" src="" type="video/mp4" >视频</source>  
+										您的浏览器不支持video标签  
+									</video>-->
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="button" class="btn" id="save_wedding_vedio" data-loading-text="正在处理">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-6">
+						<form class="form-horizontal" >
+							<div class="control-group">
+								<label class="control-label">请贴内容：</label>
+								<div class="controls">
+									<textarea rows="3" class="input-xxlarge" id="invite_message" style="height:150px;"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn" id="save_invite_message">保存</button>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">请贴封面：</label>
+								<div class="controls">
+									<ul class="invite_list clearfix">
+										<li>
+											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="./images/invite1.png" alt="" class="invite_cover invite_cover1" />
+											<div class="upload_invite">
+												<a href="#" class="btn btn-info">选择图片</a>
+												<input type="file"  />
+											</div>
+										</li>
+										
+										<li>
+											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="./images/invite2.png" alt="" class="invite_cover invite_cover1" />
+											<div class="upload_invite">
+												<a href="#" class="btn btn-info">选择图片</a>
+												<input type="file"  />
+											</div>
+										</li>
+										
+										<li>
+											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="./images/invite3.png" alt="" class="invite_cover invite_cover1" />
+											<div class="upload_invite">
+												<a href="#" class="btn btn-info">选择图片</a>
+												<input type="file"  />
+											</div>
+										</li>
+										
+										<li>
+											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="./images/invite4.png" alt="" class="invite_cover invite_cover1" />
+											<div class="upload_invite">
+												<a href="#" class="btn btn-info">选择图片</a>
+												<input type="file"  />
+											</div>
+										</li>
+										
+										<li>
+											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="./images/invite5.png" alt="" class="invite_cover invite_cover1" />
+											<div class="upload_invite">
+												<a href="#" class="btn btn-info">选择图片</a>
+												<input type="file"  />
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							
+						</form>
+					</div>
+
+					<div class="tab-pane" id="panel-7">
+						<form class="form-horizontal" >
+							<div class="control-group">
+								<label class="control-label">转发内容：</label>
+								<div class="controls">
+									<textarea rows="3" class="input-xxlarge" id="invite_message"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn" id="save_invite_message">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="tab-pane" id="panel-8">
+						<form class="form-horizontal" >
+							<div class="control-group">
+								<label class="control-label">内容：</label>
+								<div class="controls">
+									<textarea name="" id="editor" style="width:700px; height:300px;"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn" id="save_flow">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- show category Modal -->
+<div id="category_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="category_title" aria-hidden="false" style="width:926px; margin-left:-463px !important;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="category_title">相册</h3>
+	</div>
+	<div class="modal-body">
+		<iframe src="#" frameborder="0" id="show_category_frame" style="height:600px; width:100%;"></iframe>
+	</div>
+</div>
+
+<input type="hidden" id="wedding_id" value="<%= id %>">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bootstrap/datapicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/js/editor/js/wysihtml5-0.3.0.js"></script>
+<script src="/bootstrap/editor/bootstrap-wysihtml5.js"></script>
+<script src="https://cn.avoscloud.com/scripts/lib/av-0.2.7.min.js"></script>
+<script src="/player/mediaelement-and-player.min.js"></script>
+<script type="text/javascript">
+        AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
+</script>
+<script type="text/javascript">
+	var weddingId = '<%= id%>';
+	var coupleId = '<%= wedding.get('couple').id %>';
+	var CATEGORY_NUM = 0;
+	
+	function createTpl(str, cfg) {
+		var _re = /(%([\w]+?)%)/g;
+		
+		return str.replace(_re, function() {
+			var _val = cfg[arguments[2]]+'';
+			if(typeof _val == 'undefined') {
+				_val = '';
+			}
+			return _val;
+		});
+	}
+	
+	function initCategoryTpl(conf){
+		var tpl = '<li id="%id%"><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></li>';
+		var str = createTpl(tpl,conf);
+		return str;
+	}
+	
+	function init(){
+		$('#editor').wysihtml5();
+	}
+	
+	init();
+	
+	//保存新娘新郎信息
+	$('#save_couple_info').bind('click',function(){
+		var boyIntro = $('#boy_intro').val();
+		var girlIntro = $('#girl_intro').val();
+		var loveStory = $('#love_story').val();
+		
+		var Couple = AV.Object.extend("Couple");
+		var query = new AV.Query(Couple);
+		query.get(coupleId, {
+		  success: function(couple) {
+			console.log(couple);
+			couple.set('boyIntro',boyIntro);
+			couple.set('girlIntro',girlIntro);
+			couple.set('loveStroy',loveStory);
+			couple.save(null,{
+				success:function(){alert('保存成功')},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存地点信息
+	$('#save_wedding_info').bind('click',function(){
+		var time = $('#datePicker').val();
+		var latitude = parseFloat($('#latitude').val());
+		var longitude = parseFloat($('#longitude').val());
+		var address = $('#address').val();
+		var traffic = $('#traffic').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(wedding);
+			var location = wedding.get('location');
+			location.set('time',time);
+			location.set('latitude',latitude);
+			location.set('longitude',longitude);
+			location.set('address',address);
+			location.set('traffic',traffic);
+			location.save(null,{
+				success:function(){alert('保存成功')},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存视频
+	$('#save_wedding_vedio').bind('click',function(){
+		var videoUrl = $('#video').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(wedding);
+			var video = wedding.get('video');
+			video.set('videoURL',videoUrl);
+			video.save(null,{
+				success:function(video){
+					alert('保存成功');
+					//$('#video_src').attr('src',video.get('videoURL'))
+				},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	//保存流程
+	$('#save_flow').bind('click',function(){
+		var flowTxt = $('#editor').val();
+		
+		var Wedding = AV.Object.extend("Wedding");
+		var query = new AV.Query(Wedding);
+		query.get(weddingId, {
+		  success: function(wedding) {
+			console.log(wedding);
+			var flow = wedding.get('flow');
+			flow.set('content',flowTxt);
+			flow.save(null,{
+				success:function(video){
+					alert('保存成功');
+				},
+				error:function(){alert('保存失败')}
+			});
+		  },
+		  error: function(object, error) {
+		  }
+		});
+		
+		return false;
+	});
+	
+	function uploadImage(fileController,callback){
+		var fileUploadControl = fileController[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				callback && callback(file);
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	}
+	//创建相册
+	$('#create_category').on('click',function(){
+		var categoryName = $('#category_name').val();
+		if (categoryName == ''){
+			alert('请输入相册名称');
+			return false;
+		}
+		uploadImage($('#category_cover'),function(file){
+			console.log(file);
+			var fileId = file.id;
+			var Category = AV.Object.extend('Category');
+			var category = new Category();
+			category.set('title',categoryName);
+			category.set('cover',file);
+			category.set('weddingId',weddingId);
+			category.save(null,{
+				success:function(category){
+					$('.close').click();
+					var id = category.id;
+					var title = category.get('title');
+					var img = category.get('cover').url();
+					var id = category.id;
+					var node = initCategoryTpl({id:id,title:title,img:img});
+					$(node).appendTo($('#photo_list'));
+					CATEGORY_NUM++;
+					$('#category_num').text(CATEGORY_NUM);
+					$('#create_category_form')[0].reset();
+				},
+				error:function(){
+					
+				},
+			});
+		});
+		return false;
+	});
+	
+	//上传封面
+	$('#upload_wedding_cover').bind('click',function(){
+		var fileUploadControl = $('#wedding_cover')[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				var url = file._url;
+				var id = file.id;
+				$('#wedding_img').attr('src',url);
+
+				var Wedding = AV.Object.extend('Wedding');
+				var query = new AV.Query(Wedding);
+				query.get(weddingId,{
+					success: function(wedding){
+						var couple = wedding.get('couple');
+						couple.set('weddingcover',file);	
+						couple.save().then(function(){
+							alert('上传成功');
+						});
+						console.log(wedding);
+					},
+					error: function(error){}
+				});
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	});
+    </script>
+    <script type="text/javascript">
+      $('#datepicker').datetimepicker({
+        format: 'MM/dd/yyyy hh:mm',
+        language: 'en',
+        pickDate: true,
+        pickTime: true,
+        hourStep: 1,
+        minuteStep: 15,
+        secondStep: 30,
+        inputMask: false
+      });
+    </script>
+	<script>
+
+$('audio,video').mediaelementplayer();
+
+</script>
+</body>
+</html>

@@ -67,6 +67,11 @@ app.get('/wedding',function(req,res){
 	});
 });
 
+app.get('/addwedding',function(req,res){
+	var id = req.query.id;
+	res.render('addwedding',{id:id,userName:'阿树'});
+});
+
 app.get('/category',function(req,res){
 	var id = req.query.id;
 	res.render('category',{id:id,userName:'阿树1'});
