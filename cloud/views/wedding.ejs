@@ -657,7 +657,8 @@
 			var Category = AV.Object.extend('Category');
 			var category = new Category();
 			category.set('title',categoryName);
-			category.save(categoryId,{
+			category.set('objectId',categoryId);
+			category.save(null,{
 				success:function(category){
 					$('.close').click();
 					var id = category.id;
