@@ -291,7 +291,7 @@
 		wedding.set('flow',flow);
 		wedding.set('video',video);
 		wedding.set('location',location1);
-		wedding.set('holdAt',time);
+		wedding.set('holdAt',new Date(time));
 		//wedding.set('invitationcard',invitationcard);
 		
 		wedding.save(null,{
