@@ -65,18 +65,18 @@
 	}
 	
 	function initPhotoTpl(conf){
-		var tpl = '<li id="%id%"><a href="%img%" target="blank"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a><a href="#" class="remove_photo" cid="%id%"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><a class="photo_img" href="%img%" target="blank"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a><a href="#" class="remove_photo" cid="%id%"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
 	
-	$('#photo_list').on('click','.remove_category',function(){
+	$('#photo_list').on('click','.remove_photo',function(){
 		var box = $(this).closest('li');
 		var id = $(this).attr('cid');
 		
 		if (confirm('确定要删除！')){
-			var Category = AV.Object.extend('Category');
-			var queryPhoto = new AV.Query(Category);
+			var Photo = AV.Object.extend('Photo');
+			var queryPhoto = new AV.Query(Photo);
 			
 			queryPhoto.get(id, {
 			  success: function(myObject) {
