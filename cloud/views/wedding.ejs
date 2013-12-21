@@ -387,18 +387,20 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr20 edit_category" cid="%id%"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
 	
-	$('.remove_category').on('click',function(){
-		alert('sss');
+	$('#photo_list').on('click','.remove_category',function(){
+		if (confirm('确定要删除！')){
+			$(this).closest('li').remove();
+		}
 		return false;
 	});
 	
-	$('.edit_category').on('click',function(){
-		alert('sss');
+	$('#photo_list').on('click','.edit_category',function(){
+		$('#modal-container-695810').modal()
 		return false;
 	});
 	

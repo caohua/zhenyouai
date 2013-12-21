@@ -5,7 +5,7 @@
 
 .photo_list{width:100%;background:#fff; padding:10px 20px; list-style:none; margin-left:0;}
 .photo_box{border:1px solid #ccc; background:#fff; margin-left:20px;}
-.photo_list li{margin-bottom:10px; line-height:24px; border-bottom:1px solid #ccc; text-align:center;}
+.photo_list li{margin-bottom:10px; line-height:24px; text-align:center;}
 .video{border: 1px solid #CCCCCC; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);}
 
 .photos{margin:0; overflow:hidden; zoom:1; padding:15px 0;}
@@ -13,7 +13,7 @@
 .photos ul{list-style:none; overflow:hidden; zoom:1; margin-left:20px;}
 .photos li{float:left; margin-right:15px; margin-top:20px; list-style:none;}
 .photos li div{position:relative;}
-.photos li p{height:24px; line-height:24px; background:rgba(0,0,0,.3); position:absolute; bottom:0; left:0; width:159px; bottom:-9px; }
+.photos li p{height:24px; line-height:24px; text-align:center; background:rgba(0,0,0,.3); position:absolute; bottom:0; left:0; width:159px; bottom:-9px; }
 .photos li p a{color:#fff;}
 .photos_opera{padding:15px 0 15px 0; border-bottom:1px solid #ccc; }
 
@@ -35,6 +35,8 @@
 .tr{text-align:right;}
 .ml10{margin-left:10px;}
 .ml20{margin-left:20px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
 .mr20{margin-right:20px;}
 .mt20{margin-top:20px;}
 .fl{float:left;}
