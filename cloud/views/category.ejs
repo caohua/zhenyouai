@@ -83,6 +83,8 @@
 				myObject.destroy({
 				  success: function(myObject) {
 					box.remove();
+					PHOTO_NUM--;
+					$('#photo_num').text(PHOTO_NUM);
 				  },
 				  error: function(myObject, error) {
 					alert('操作失败');
@@ -184,6 +186,7 @@
 				_html += initPhotoTpl({id:id,img:img});
 			}
 			$('#photo_list').html(_html);
+			PHOTO_NUM = len;
 			$('#photo_num').text(len);
 		  },
 		  error: function(error) {
