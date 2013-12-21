@@ -91,7 +91,7 @@
 					<div class="tab-pane active" id="panel-1">
 						<div class="alert alert-info">
 							<button type="button" class="close" data-dismiss="alert">×</button>
-							<strong>警告!</strong> 请注意你的个人隐私安全.
+							<strong>提示：</strong> 上传图片不要超过4M
 						</div>
 						<div class="form-inline">
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
@@ -149,6 +149,7 @@
 														<div class="control-group">
 															<label class="control-label">相册名称：</label>
 															<div class="controls">
+																<input type="hidden" id="category_edit_id" value="" />
 																<input type="text" placeholder="输入相册名称" id="category_edit_name">
 															</div>
 														</div>
@@ -156,7 +157,7 @@
 															<label class="control-label">相册封面：</label>
 															<div class="controls">
 																<input type="file" placeholder="输入相册封面" id="category_edit_cover">
-																<img alt="" src="" class="img-polaroid" id="category_edit_img">
+																<img alt="" src="" class="img-polaroid mt20" id="category_edit_img">
 															</div>
 														</div>
 													</form>
@@ -598,7 +599,7 @@
 			alert('请选择要上传的图片。');
 		}
 	}
-	//创建相册
+	//创建相册edit_category
 	$('#create_category').on('click',function(){
 		var categoryName = $('#category_name').val();
 		if (categoryName == ''){
@@ -631,6 +632,49 @@
 				},
 			});
 		});
+		return false;
+	});
+	//修改相册
+	$('#edit_category').on('click',function(){
+		var categoryName = $('#category_edit_name').val();
+		var categoryId = $('#category_edit_id').val();
+		if (categoryName == ''){
+			alert('请输入相册名称');
+			return false;
+		}
+		
+		var fileUploadControl = $('#category_edit_cover')[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				callback && callback(file);
+			},function(error){});
+			
+		}else{
+			var Category = AV.Object.extend('Category');
+			var category = new Category();
+			category.set('title',categoryName);
+			category.save(categoryId,{
+				success:function(category){
+					$('.close').click();
+					var id = category.id;
+					var title = category.get('title');
+					var img = category.get('cover').url();
+					var id = category.id;
+					var node = initCategoryTpl({id:id,title:title,img:img});
+					$(node).appendTo($('#photo_list'));
+					CATEGORY_NUM++;
+					$('#category_num').text(CATEGORY_NUM);
+					$('#create_category_form')[0].reset();
+				},
+				error:function(){
+					
+				},
+			});
+		}
 		return false;
 	});
 	
