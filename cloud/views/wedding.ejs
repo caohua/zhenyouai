@@ -424,8 +424,29 @@
 	}
 	
 	$('#photo_list').on('click','.remove_category',function(){
+		var box = $(this).closest('li');
+		var id = $(this).attr('cid');
+		
 		if (confirm('确定要删除！')){
-			$(this).closest('li').remove();
+			var Category = AV.Object.extend('Category');
+			var queryPhoto = new AV.Query(Category);
+			
+			queryPhoto.get(id, {
+			  success: function(myObject) {
+				myObject.destroy({
+				  success: function(myObject) {
+					box.remove();
+				  },
+				  error: function(myObject, error) {
+					alert('操作失败');
+				  }
+				});
+			  },
+			  error: function(object, error) {
+				alert('操作失败');
+			  }
+			});
+			
 		}
 		return false;
 	});
