@@ -215,26 +215,26 @@
 							<div class="control-group">
 								<label class="control-label">坐标：</label>
 								<div class="controls">
-									<input type="text" class="input-large mr20" id="latitude" style="width:246px;" placeholder="地点坐标-纬度" value="<%= wedding.get('location').get('latitude') %>" />
-									<input type="text" class="input-large" id="longitude" style="width:246px;" placeholder="地点坐标-经度" value="<%= wedding.get('location').get('longitude') %>" />
+									<input type="text" class="input-large mr20" id="latitude" style="width:246px;" placeholder="地点坐标-纬度" value="<%= wedding.get('location')?wedding.get('location').get('latitude'):'' %>" />
+									<input type="text" class="input-large" id="longitude" style="width:246px;" placeholder="地点坐标-经度" value="<%= wedding.get('location')?wedding.get('location').get('longitude'):'' %>" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">时间：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker" value="<%= wedding.get('location').get('time') %>"/>
+									<input type="text" class="input-xxlarge" placeholder="宴会时间" id="datePicker" value="<%= wedding.get('location')?wedding.get('location').get('time'):'' %>"/>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">地点：</label>
 								<div class="controls">
-									<input type="text" class="input-xxlarge" placeholder="宴会地点" id="address" value="<%= wedding.get('location').get('address') %>"/>
+									<input type="text" class="input-xxlarge" placeholder="宴会地点" id="address" value="<%= wedding.get('location')?wedding.get('location').get('address'):'' %>"/>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">交通信息：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="traffic"><%= wedding.get('location').get('traffic') %></textarea>
+									<textarea rows="3" class="input-xxlarge" id="traffic"><%= wedding.get('location')?wedding.get('location').get('traffic'):'' %></textarea>
 								</div>
 							</div>
 							<div class="control-group">
@@ -252,13 +252,13 @@
 								<div class="controls">
 									<input type="text" class="input-xxlarge" placeholder="地址" id="video" value="<%= wedding.get('video').get('videoURL')%>" style="margin-bottom:20px;"/>
 									<video width="640" height="360" id="player2"  controls="controls" preload="none">
-										<source type="video/mp4" src="<%= wedding.get('video').get('videoURL')%>" />
+										<source type="video/mp4" src="<%= wedding.get('video')?wedding.get('video').get('videoURL'):''%>" />
 										<object width="640" height="360" type="application/x-shockwave-flash" data="/player/flashmediaelement.swf"> 		
 											<param name="movie" value="/player/flashmediaelement.swf" /> 	
 										</object> 	
 									</video>
 									<!--<video width="600" height="350" controls="controls" class="video mt20" style="display:none;">  
-										<source id="video_src" src="<%= wedding.get('video').get('videoURL')%>" type="video/mp4" >视频</source>  
+										<source id="video_src" src="<%=  wedding.get('video')?wedding.get('video').get('videoURL'):''%>" type="video/mp4" >视频</source>  
 										您的浏览器不支持video标签  
 									</video>-->
 								</div>
@@ -276,7 +276,7 @@
 							<div class="control-group">
 								<label class="control-label">请贴内容：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="invite_message" style="height:150px;"><%= wedding.get('invicationcard').get('content')%></textarea>
+									<textarea rows="3" class="input-xxlarge" id="invite_message" style="height:150px;"><%= wedding.get('invicationcard')?wedding.get('invicationcard').get('content'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
@@ -344,7 +344,7 @@
 							<div class="control-group">
 								<label class="control-label">转发内容：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="invite_message"><%= wedding.get('invicationcard').get('invitemessage').get('content')%></textarea>
+									<textarea rows="3" class="input-xxlarge" id="invite_message"></textarea>
 								</div>
 							</div>
 							<div class="control-group">
@@ -360,7 +360,7 @@
 							<div class="control-group">
 								<label class="control-label">内容：</label>
 								<div class="controls">
-									<textarea name="" id="editor" style="width:700px; height:300px;"><%= wedding.get('flow').get('content')%></textarea>
+									<textarea name="" id="editor" style="width:700px; height:300px;"><%= wedding.get('flow')?wedding.get('flow').get('content'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
