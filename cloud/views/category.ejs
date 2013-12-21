@@ -34,7 +34,7 @@
 				</form>
 		</div>
 		<div class="modal-footer tc">
-			<button class="btn btn-primary" data-loading-text="正在加载" id="upload_photo">上传</button>
+			<button class="btn btn-primary" data-loading-text="处理中..." id="upload_photo">上传</button>
 		</div>
 	</div> 
 	
@@ -65,10 +65,38 @@
 	}
 	
 	function initPhotoTpl(conf){
-		var tpl = '<li id="%id%"><a href="%img%"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a></li>';
+		var tpl = '<li id="%id%"><a href="%img%" target="blank"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /></a><a href="#" class="remove_photo" cid="%id%"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
+	
+	$('#photo_list').on('click','.remove_category',function(){
+		var box = $(this).closest('li');
+		var id = $(this).attr('cid');
+		
+		if (confirm('确定要删除！')){
+			var Category = AV.Object.extend('Category');
+			var queryPhoto = new AV.Query(Category);
+			
+			queryPhoto.get(id, {
+			  success: function(myObject) {
+				myObject.destroy({
+				  success: function(myObject) {
+					box.remove();
+				  },
+				  error: function(myObject, error) {
+					alert('操作失败');
+				  }
+				});
+			  },
+			  error: function(object, error) {
+				alert('操作失败');
+			  }
+			});
+			
+		}
+		return false;
+	});
 	
 	function uploadImage(fileController,callback){
 		var fileUploadControl = fileController[0];
