@@ -95,9 +95,9 @@
 						</div>
 						<div class="form-inline">
 							<input type="file" id="wedding_cover" class="input-small" placeholder="选择图片">
-							<button class="btn" id="upload_wedding_cover">上传</button>
+							<button class="btn" id="upload_wedding_cover" data-loading-text="处理中...">上传</button>
 						</div>
-						<img class="img-polaroid wedding_cover" id="wedding_img" src="<%= wedding.get('couple').get('weddingcover')?wedding.get('couple').get('weddingcover').url():'' %>" />
+						<img class="img-polaroid wedding_cover" id="wedding_img" src="<%= wedding.get('couple').get('weddingcover')?wedding.get('couple').get('weddingcover').url():'http://paas-files.qiniudn.com/7HBCWt62tXQo9dENDz2BN5Dj5IHgaYHRynzADoXt.jpg' %>" />
 					</div>
 					<div class="tab-pane" id="panel-2">
 						<div class="row-fluid">
@@ -187,19 +187,19 @@
 							<div class="control-group">
 								<label class="control-label">新郎介绍：</label>
 								<div class="controls">
-									<textarea rows="3"  class="input-xxlarge" id="boy_intro"><%= wedding.get('couple').get('boyIntro')%></textarea>
+									<textarea rows="3"  class="input-xxlarge" id="boy_intro"><%= wedding.get('couple').get('boyIntro')?wedding.get('couple').get('boyIntro'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">新娘介绍：</label>
 								<div class="controls">
-									<textarea rows="3"  class="input-xxlarge" id="girl_intro"><%= wedding.get('couple').get('girlIntro')%></textarea>
+									<textarea rows="3"  class="input-xxlarge" id="girl_intro"><%= wedding.get('couple').get('girlIntro')?wedding.get('couple').get('girlIntro'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">相识相知：</label>
 								<div class="controls">
-									<textarea rows="3"  class="input-xxlarge" id="love_story" style="height:170px;"><%= wedding.get('couple').get('loveStroy')%></textarea>
+									<textarea rows="3"  class="input-xxlarge" id="love_story" style="height:170px;"><%= wedding.get('couple').get('loveStroy')?wedding.get('couple').get('loveStroy'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
