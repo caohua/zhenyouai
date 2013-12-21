@@ -62,6 +62,9 @@ app.get('/wedding',function(req,res){
 
 	query.get(id,{
 		 success: function(wedding){
+			for (var i=0,len=wedding.length; i<len; i++){
+				
+			}
 			res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
 		 }
 	});
