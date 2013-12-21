@@ -13,7 +13,8 @@
 .photos ul{list-style:none; overflow:hidden; zoom:1; margin-left:20px;}
 .photos li{float:left; margin-right:15px; margin-top:20px; list-style:none;}
 .photos li div{position:relative;}
-.photos li p{height:24px; line-height:24px; background:rgba(0,0,0,.3); position:absolute; bottom:0; left:0;}
+.photos li p{height:24px; line-height:24px; background:rgba(0,0,0,.3); position:absolute; bottom:0; left:0; width:159px; bottom:-9px; }
+.photos li p a{color:#fff;}
 .photos_opera{padding:15px 0 15px 0; border-bottom:1px solid #ccc; }
 
 .main_content{width:960px; margin:auto; padding:15px 0;}

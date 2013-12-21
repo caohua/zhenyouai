@@ -387,7 +387,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#"><i class="icon-edit"></i></a><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="ml20"><i class="icon-edit"></i></a><a><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
