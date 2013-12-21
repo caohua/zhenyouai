@@ -37,6 +37,7 @@
 .upload_invite input{position:absolute; left:0; top:0; opacity:0; filter:alpha(opacity=0); width:200px; height:200px; cursor:pointer;}
 
 
+.footer {  border-top: 1px dotted #DDDDDD;  color: #666666;  font-size: 12px;  margin-top: 200px;  padding: 20px;  text-align: center;}
 
 .tc{text-align:center;}
 .tr{text-align:right;}
