@@ -19,6 +19,7 @@
 .remove_photo{position:absolute; font-size:30px; right:-7px; top:-7px; display:none; border:1px solid #ddd; border-radius:50%; background-color:#fff;}
 .photo_img:hover .remove_photo{display:inline-block;}
 .photos_opera{padding:15px 0 15px 0; border-bottom:1px solid #ccc; }
+.photo_top_bar{position:fixed; left:0; top:0; padding:10px 0; background:rgba(255,255,255,.8); width:2000px; z-index:1000;}
 
 .main_content{width:960px; margin:auto; padding:15px 0;}
 .wedding_cover{width:350px;margin-top:20px; height:auto;}
