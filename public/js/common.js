@@ -11,3 +11,17 @@
 		},3000);
 	}
 });
+
+function setDoingStatus(dom){
+	var txt = $(dom).text();
+    var load = $(dom).attr('data-loading-text');
+	if (load){
+		$(dom).text(load);
+		$(dom).attr('disabled','disabled');
+		var btn = $(dom);
+		setTimeout(function(){
+			btn.removeAttr('disabled');
+			btn.text(txt);
+		},3000);
+	}
+}
