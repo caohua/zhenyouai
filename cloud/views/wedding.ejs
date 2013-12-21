@@ -418,7 +418,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%" ctitle="%title%" cimg="%img%?imageView/2/w/300"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%" ctitle="%title%" cimg="%img%?imageView/2/w/210"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
@@ -438,9 +438,8 @@
 		return false;
 	});
 	
-	function init(){
-		$('#editor').wysihtml5();
-	
+	//更新相册
+	function uploadCategory(){
 		var Category = AV.Object.extend('Category');
 		var queryPhoto = new AV.Query(Category);
 		queryPhoto.equalTo("weddingId", weddingId);
@@ -459,20 +458,25 @@
 			$('#category_num').text(len);
 			CATEGORY_NUM = len;
 			$('#photo_list').html(_html);
-			$('#photo_list').find('.show_category').bind('click',function(){
-				var url = $(this).attr('href');
-				var title = $(this).attr('title');
-				$('#category_title').text(title);
-				$('#show_category_frame').attr('src',url);
-				$('#category_modal').modal()
-				return false;
-			});
 		  },
 		  error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
 		  }
 		});
-		
+	}
+	
+	$('#photo_list').on('click','.show_category',function(){
+		var url = $(this).attr('href');
+		var title = $(this).attr('title');
+		$('#category_title').text(title);
+		$('#show_category_frame').attr('src',url);
+		$('#category_modal').modal()
+		return false;
+	});
+	
+	function init(){
+		$('#editor').wysihtml5();
+		uploadCategory();
 	}
 	
 	init();
@@ -621,7 +625,6 @@
 					var id = category.id;
 					var title = category.get('title');
 					var img = category.get('cover').url();
-					var id = category.id;
 					var node = initCategoryTpl({id:id,title:title,img:img});
 					$(node).appendTo($('#photo_list'));
 					CATEGORY_NUM++;
@@ -658,19 +661,12 @@
 			var Category = AV.Object.extend('Category');
 			var category = new Category();
 			category.set('title',categoryName);
-			category.set('objectId',categoryId);
-			category.save(null,{
+			//category.set('objectId',categoryId);
+			category.save(categoryId,{
 				success:function(category){
 					$('.close').click();
 					var id = category.id;
-					var title = category.get('title');
-					var img = category.get('cover').url();
-					var id = category.id;
-					var node = initCategoryTpl({id:id,title:title,img:img});
-					$(node).appendTo($('#photo_list'));
-					CATEGORY_NUM++;
-					$('#category_num').text(CATEGORY_NUM);
-					$('#create_category_form')[0].reset();
+					uploadCategory();
 				},
 				error:function(){
 					
