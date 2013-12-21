@@ -437,6 +437,8 @@
 				myObject.destroy({
 				  success: function(myObject) {
 					box.remove();
+					CATEGORY_NUM--;
+					$('#category_num').text(CATEGORY_NUM);
 				  },
 				  error: function(myObject, error) {
 					alert('操作失败');

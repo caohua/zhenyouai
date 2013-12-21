@@ -118,13 +118,14 @@
 	
 	//创建相册
 	$('#photo').change(function(){
+		setDoingStatus($('#upload_btn'));
 		uploadImage($('#photo'),function(file){
 			var fileId = file.id;
 			var Photo = AV.Object.extend('Photo');
 			var photo = new Photo();
 			photo.set('categoryId',categoryId);
 			photo.set('image',file);
-			setDoingStatus($('#upload_btn'));
+			
 			photo.save(null,{
 				success:function(photo){
 					$('.close').click();
