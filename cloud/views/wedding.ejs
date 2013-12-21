@@ -136,6 +136,36 @@
 											</div>
 										</div>
 										
+										<div id="edit_category_modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-header">
+												 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h3 id="myModalLabel">
+													修改相册
+												</h3>
+												
+											</div>
+											<div class="modal-body">
+													<form class="form-horizontal" id="create_category_form">
+														<div class="control-group">
+															<label class="control-label">相册名称：</label>
+															<div class="controls">
+																<input type="text" placeholder="输入相册名称" id="category_edit_name">
+															</div>
+														</div>
+														<div class="control-group">
+															<label class="control-label">相册封面：</label>
+															<div class="controls">
+																<input type="file" placeholder="输入相册封面" id="category_edit_cover">
+																<img alt="" src="" class="img-polaroid" id="category_edit_img">
+															</div>
+														</div>
+													</form>
+											</div>
+											<div class="modal-footer tc">
+												<button class="btn btn-primary" data-loading-text="正在加载" id="edit_category">保存</button>
+											</div>
+										</div>
+										
 										
 										
 									</div>
@@ -387,7 +417,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%" ctitle="%title%" cimg="%img%?imageView/2/w/300"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
@@ -400,7 +430,9 @@
 	});
 	
 	$('#photo_list').on('click','.edit_category',function(){
-		$('#modal-container-695810').modal()
+		$('#category_edit_name').val($(this).attr('ctitle'));
+		$('#category_edit_img').attr('src',$(this).attr('cimg'));
+		$('#edit_category_modal').modal();
 		return false;
 	});
 	

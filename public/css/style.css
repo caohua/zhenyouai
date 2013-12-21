@@ -11,7 +11,7 @@
 .photos{margin:0; overflow:hidden; zoom:1; padding:15px 0;}
 .photos img{width:150px;}
 .photos ul{list-style:none; overflow:hidden; zoom:1; margin-left:20px;}
-.photos li{float:left; margin-right:15px; margin-top:20px; list-style:none;}
+.photos li{float:left; margin-right:15px; margin-top:20px; list-style:none; text-align:right;}
 .photos li div{position:relative;}
 .photos li p{height:24px; line-height:24px; text-align:center; background:rgba(0,0,0,.3); position:absolute; bottom:0; left:0; width:159px; bottom:-9px; }
 .photos li p a{color:#fff;}
