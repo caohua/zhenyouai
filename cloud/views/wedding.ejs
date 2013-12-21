@@ -612,7 +612,6 @@
 			return false;
 		}
 		uploadImage($('#category_cover'),function(file){
-			console.log(file);
 			var fileId = file.id;
 			var Category = AV.Object.extend('Category');
 			var category = new Category();
@@ -654,7 +653,22 @@
 
 			var avFile = new AV.File(name,file);
 			avFile.save().then(function(file){
-				callback && callback(file);
+				var fileId = file.id;
+				var Category = AV.Object.extend('Category');
+				var category = new Category();
+				category.set('objectId',categoryId);
+				category.set('title',categoryName);
+				category.set('cover',file);
+				category.save(null,{
+					success:function(category){
+						$('.close').click();
+						uploadCategory();
+					},
+					error:function(){
+						
+					},
+				});
+				
 			},function(error){});
 			
 		}else{
