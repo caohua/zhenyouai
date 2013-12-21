@@ -12,7 +12,7 @@
 <body style="background:#fff !important;">
 <div>
 
-	<div class="photo_top_bar"><a id="modal-695811" href="#modal-container-695811" role="button" class="btn btn-info mr20" data-toggle="modal">上传照片</a>共<span id="photo_num">0</span>张</div>
+	<div class="photo_top_bar"><div class="file_upload_btn"><a id="modal-695811" href="#modal-container-695811" role="button" class="btn btn-info mr20" data-toggle="modal">上传照片</a><input type="file" placeholder="选择照片" id="photo"></div>共<span id="photo_num">0</span>张</div>
 	<div id="modal-container-695811" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
 		<div class="modal-header">
 			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -28,7 +28,7 @@
 				<form class="form-horizontal" id="photo_form">
 					<div class="control-group">
 						<div class="controls">
-							<input type="file" placeholder="选择照片" id="photo">
+							
 						</div>
 					</div>
 				</form>
@@ -38,7 +38,7 @@
 		</div>
 	</div> 
 	
-	<ul class="photos" id="photo_list">	</ul>
+	<ul class="photos mt20" id="photo_list">	</ul>
 </div>
 <input type="hidden" id="wedding_id" value="<%= id %>">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
