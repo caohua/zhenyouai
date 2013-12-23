@@ -513,7 +513,7 @@
 				var id = obj.id;
 				var index = obj.get('index');
 				var img = obj.get('image')?obj.get('image').url():'';
-				_html += initInviteTpl({id:id,img:img});
+				_html += initInviteTpl({id:id,index:index,img:img});
 			}
 
 			$('#invite_list').html(_html);
