@@ -289,7 +289,7 @@
 								<div class="controls">
 									<ul class="invite_list clearfix">
 										<li>
-											<img src="./images/demo/demo1.jpg" alt="" class="invite_img"/>
+											<img src="<%= wedding.get('Invitationcard').get('image').url()%>" alt="" class="invite_img"/>
 											<img src="./images/invite1.png" alt="" class="invite_cover invite_cover1" />
 											<div class="upload_invite">
 												<a href="#" class="btn btn-info">选择图片</a>
@@ -423,7 +423,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="./category?id=%id%" class="show_category mr15" title="上传" target="_blank"><i class="icon-upload"></i></a><a href="#" class="mr15 edit_category" cid="%id%" title="编辑" ctitle="%title%" cimg="%img%?imageView/2/w/210"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%" title="删除"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" ctitle="%title%" target="_blank">%title%</a></p></div><a href="./category?id=%id%" class="show_category mr15" title="上传" ctitle="%title%" target="_blank"><i class="icon-upload"></i></a><a href="#" class="mr15 edit_category" cid="%id%" title="编辑" ctitle="%title%" cimg="%img%?imageView/2/w/210"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%" title="删除"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
@@ -495,7 +495,7 @@
 	
 	$('#photo_list').on('click','.show_category',function(){
 		var url = $(this).attr('href');
-		var title = $(this).attr('title');
+		var title = $(this).attr('ctitle');
 		$('#category_title').text(title);
 		$('#show_category_frame').attr('src',url);
 		$('#category_modal').modal()

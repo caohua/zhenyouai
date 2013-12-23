@@ -277,6 +277,8 @@
 		var Video =  AV.Object.extend('Video');
 		var Location =  AV.Object.extend('Location');
 		var Invitationcard =  AV.Object.extend('Invitationcard');
+		var code = 
+		var code = parseInt(Math.random()*100000000)+'';
 		
 		
 		var wedding = new Wedding();
@@ -289,8 +291,8 @@
 		
 		couple.set('boy',boy);
 		couple.set('girl',girl);
-	
-		wedding.set('sweetcode','0000000');
+		
+		wedding.set('sweetcode',code);
 		wedding.set('couple',couple);
 		wedding.set('flow',flow);
 		wedding.set('video',video);
