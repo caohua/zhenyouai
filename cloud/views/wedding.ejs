@@ -423,7 +423,7 @@
 	}
 	
 	function initCategoryTpl(conf){
-		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="#" class="mr15 edit_category" cid="%id%" ctitle="%title%" cimg="%img%?imageView/2/w/210"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%"><i class="icon-trash"></i></a></li>';
+		var tpl = '<li id="%id%"><div><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><p><a href="./category?id=%id%" class="show_category" title="%title%" target="_blank">%title%</a></p></div><a href="./category?id=%id%" class="show_category mr15" title="上传" target="_blank"><i class="icon-upload"></i></a><a href="#" class="mr15 edit_category" cid="%id%" title="编辑" ctitle="%title%" cimg="%img%?imageView/2/w/210"><i class="icon-edit"></i></a><a href="#" class="remove_category" cid="%id%" title="删除"><i class="icon-trash"></i></a></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
