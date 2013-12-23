@@ -493,6 +493,22 @@
 		});
 	}
 	
+	//更新邀请卡
+	function updateInvite(){
+		var Invitationcard = AV.Object.extend('Invitationcard');
+		var query = new AV.Query(Invitationcard);
+		query.equalTo("weddingId", weddingId);
+		
+		query.find({
+		  success: function(results) {
+			console.log(results);
+		  },
+		  error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		  }
+		});
+	}
+	
 	$('#photo_list').on('click','.show_category',function(){
 		var url = $(this).attr('href');
 		var title = $(this).attr('ctitle');
