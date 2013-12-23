@@ -251,7 +251,7 @@
 					var girl = couple.get('girl');
 					var time = obj.get('holdAt').toLocaleString();
 					var sweetCode = obj.get('sweetcode');
-					var img = couple.get('weddingcover').url()
+					var img = couple.get('weddingcover')?couple.get('weddingcover').url():'';
 					_html += createTpl(tpl,{id:id,img:img,boy:boy,girl:girl,sweetCode:sweetCode,time:time});
 				}
 				$('#wedding_list').html(_html);
