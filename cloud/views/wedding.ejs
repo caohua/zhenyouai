@@ -511,6 +511,7 @@
 			for (var i=0,len=results.length; i<len; i++){
 				var obj = results[i];
 				var id = obj.id;
+				var index = obj.get('index');
 				var img = obj.get('image')?obj.get('image').url():'';
 				_html += initInviteTpl({id:id,img:img});
 			}
