@@ -287,7 +287,7 @@
 							<div class="control-group">
 								<label class="control-label">请贴封面：</label>
 								<div class="controls">
-									<ul class="invite_list clearfix">
+									<ul class="invite_list clearfix" id="invite_list">
 										<li>
 											<img src="<%= (wedding.get('invicationcard')&wedding.get('invicationcard').get('image'))?wedding.get('invicationcard').get('image').url():''%>" alt="" class="invite_img"/>
 											<img src="./images/invite1.png" alt="" class="invite_cover invite_cover1" />
@@ -494,14 +494,28 @@
 	}
 	
 	//更新邀请卡
+	function initInviteTpl(conf){
+		var tpl = '<li id="%id%"><img class="invite_img" alt="" src="%img%"><img class="invite_cover invite_cover%index%" alt="" src="./images/invite%index%.png"><div class="upload_invite"><a class="btn btn-info" href="#">选择图片</a><input type="file"></div></li>';
+		var str = createTpl(tpl,conf);
+		return str;
+	}
 	function updateInvite(){
 		var Invitationcard = AV.Object.extend('Invitationcard');
 		var query = new AV.Query(Invitationcard);
-		query.equalTo("wedding", weddingId);
-		
+		query.equalTo("weddingId", weddingId);
+		query.descending("index");
 		query.find({
 		  success: function(results) {
-			console.log(results);
+			var _html = '';
+			
+			for (var i=0,len=results.length; i<len; i++){
+				var obj = results[i];
+				var id = obj.id;
+				var img = obj.get('image')?obj.get('image').url():'';
+				_html += initInviteTpl({id:id,img:img});
+			}
+
+			$('#invite_list').html(_html);
 		  },
 		  error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
