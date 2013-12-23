@@ -497,7 +497,7 @@
 	function updateInvite(){
 		var Invitationcard = AV.Object.extend('Invitationcard');
 		var query = new AV.Query(Invitationcard);
-		query.equalTo("weddingId", weddingId);
+		query.equalTo("wedding", weddingId);
 		
 		query.find({
 		  success: function(results) {
