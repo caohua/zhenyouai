@@ -537,12 +537,28 @@
 		return false;
 	});
 	
+	function hashListener(hash){
+		$('.active').removeClass('active');
+		$(hash).addClass('active');
+		$('a[href='+hash+']').closest('li').addClass('active');
+	}
 	function init(){
 		$('#editor').wysihtml5();
 		$('#invite_message').wysihtml5();
 		uploadCategory();
 		updateInvite();
-		$('#nav_tabs').on('click','li>a',function(){
+		
+		window.onhashchange=function(){
+			var hash = location.hash;
+			hashListener(hash);
+		}
+		if (location.hash){
+			hashListener(location.hash);
+		}else{
+			$('#nav_tabs').find('a:first-child').click();
+		}
+		
+		/*$('#nav_tabs').on('click','li>a',function(){
 			var parent = $(this).closest('li');
 			var id = $(this).attr('href');
 			if (parent.hasClass('active')){return false;}
@@ -552,8 +568,10 @@
 			location.hash = id;
 			$(document).scrollTop(0);
 			return false;
-		});
+		});*/
 	}
+	
+	
 	
 	init();
 	
