@@ -542,11 +542,12 @@
 		$('#invite_message').wysihtml5();
 		uploadCategory();
 		updateInvite();
-		$('#nav_tabs').on('click','li',function(){
-			var id = $(this).find('a').attr('href');
-			if ($(this).hasClass('active')){return false;}
+		$('#nav_tabs').on('click','li>a',function(){
+			var parent = $(this).closest('li');
+			var id = $(this).attr('href');
+			if (parent.hasClass('active')){return false;}
 			$('.active').removeClass('active');
-			$(this).addClass('active');
+			parent.addClass('active');
 			$(id).addClass('active');
 			location.hash = id;
 			
