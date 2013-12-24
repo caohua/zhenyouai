@@ -238,29 +238,18 @@
 		var id = $(this).attr('cid');
 		var box = $(this).closest('tr');
 		if (confirm('确定删除？')){
+
 			var Wedding = AV.Object.extend('Wedding');
 			var query = new AV.Query(Wedding);
-			query.include("couple");
-			query.include("flow");
-			query.include("video");
-			query.include("location");
-			query.include("invicationcard");
-
 			query.get(id,{
 				success: function(wedding){
-					wedding.destroy({
-					  success: function(myObject) {
-						box.remove();
-					  },
-					  error: function(myObject, error) {
-						alert('操作失败');
-					  }
-					});
+					
+					console.log(wedding);
 				},
-				error: function(object, error) {
-					alert('操作失败');
-				}
+				error: function(error){}
 			});
+				
+			
 			
 		}
 	})
