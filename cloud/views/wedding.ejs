@@ -257,12 +257,12 @@
 							<div class="control-group">
 								<label class="control-label">请贴内容：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="invite_message" style="height:150px;"><%= wedding.get('invicationcard')?wedding.get('invicationcard').get('content'):''%></textarea>
+									<textarea rows="3" class="input-xxlarge" id="invite_message" style="height:150px;"><%= wedding.get('invicationcard').get('content')?wedding.get('invicationcard').get('content'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn" id="save_invite_message"  data-loading-text="处理中...">保存</button>
+									<button type="submit" class="btn" id="save_invite_message" sid="<%= wedding.get('invicationcard')?wedding.get('invicationcard').id:''%>"  data-loading-text="处理中...">保存</button>
 								</div>
 							</div>
 							<div class="control-group">
@@ -325,7 +325,7 @@
 							<div class="control-group">
 								<label class="control-label">转发内容：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="share_message"><%= wedding.get('inviteMessage')?wedding.get('inviteMessage').get('content'):''%></textarea>
+									<textarea rows="3" class="input-xxlarge" id="share_message"><%= wedding.get('inviteMessage').get('content')?wedding.get('inviteMessage').get('content'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
@@ -572,6 +572,12 @@
 		return false;
 	});
 	
+	//保存邀请内容
+	$('#save_invite_message').bind('click',function(){
+		var val = $('#invite_message').val();
+		alert('ss');
+		return false;
+	});
 	//保存转发内容
 	$('#save_share_message').bind('click',function(){
 		var content = $('#share_message').val();
@@ -649,10 +655,7 @@
 		return false;
 	});
 	
-	$('#save_invite_message').bind('click',function(){
-		var val = $('#invite_message').val();
-		return false;
-	});
+	
 	
 	//保存流程
 	$('#save_flow').bind('click',function(){
