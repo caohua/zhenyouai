@@ -279,7 +279,6 @@
 		var Invitationcard =  AV.Object.extend('Invitationcard');
 		var code = parseInt(Math.random()*100000000)+'';
 		
-		
 		var wedding = new Wedding();
 		var couple = new Couple();
 		var flow = new Flow();
@@ -299,9 +298,19 @@
 		wedding.set('holdAt',new Date(time));
 		wedding.set('invicationcard',invitationcard);
 		
+		
+		
 		wedding.save(null,{
 			success: function(wedding){
 				var id = wedding.id;
+				var Invitationcard =  AV.Object.extend('Invitationcard');
+				for (var i=0; i<len; i++){
+					var invitationcard = new Invitationcard();
+					invitationcard.set('weddingId',id);
+					invitationcard.set('index',i);
+					invitationcard.save();
+				}
+				
 				location.href = "./wedding?id="+id;
 			},
 			error: function(couple,error){
