@@ -482,11 +482,7 @@
 			alert('请选择要上传的图片。');
 		}
 	}
-	$('.upload_invite_cover').change(function(){
-		uploadInviteCover($(this),function(file){
-			console.log(file);
-		});
-	});
+	
 	function updateInvite(){
 		var Invitationcard = AV.Object.extend('Invitationcard');
 		var query = new AV.Query(Invitationcard);
@@ -505,6 +501,25 @@
 			}
 
 			$('#invite_list').html(_html);
+			$('.upload_invite_cover').change(function(){
+				var cid = $(this).attr('cid');
+				uploadInviteCover($(this),function(file){
+					console.log(file);
+					var Invitationcard = AV.Object.extend('Invitationcard');
+					var query = new AV.Query(Invitationcard);
+					query.get(cid,{
+						success:function(obj){
+							obj.set('image',file);
+							obj.save(null,{
+								success:function(obj){
+									console.log(obj);
+								}
+							});
+						}
+					});
+				
+				});
+			});
 		  },
 		  error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
