@@ -554,8 +554,7 @@
 		}
 		if (location.hash){
 			hashListener(location.hash);
-		}else{
-			$('#nav_tabs').find('a:first-child').click();
+			$(document).scrollTop(0);
 		}
 		
 		/*$('#nav_tabs').on('click','li>a',function(){
