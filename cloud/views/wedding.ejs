@@ -462,7 +462,7 @@
 	
 	//更新邀请卡
 	function initInviteTpl(conf){
-		var tpl = '<li id="%id%"><img class="invite_img" alt="" src="%img%"><img class="invite_cover invite_cover%index%" alt="" src="./images/invite%index%.png"><div class="upload_invite"><a class="btn btn-info" href="#">选择图片</a><input type="file" class="upload_invite_cover" cid="%id%"></div></li>';
+		var tpl = '<li id="%id%"><img class="invite_img" alt="" src="%img%"><img class="invite_cover invite_cover%index%" alt="" src="./images/invite%index%.png"><div class="upload_invite"><a class="btn btn-info" href="#" data-loading-text="上传中..." timeout="3500">选择图片</a><input type="file" class="upload_invite_cover" cid="%id%"></div></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
