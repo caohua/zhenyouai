@@ -105,7 +105,7 @@
 					
 				</div>
 			</div>
-			<table class="table wedding_list">
+			<table class="table wedding_list mt20">
 				<thead>
 					<tr>
 						<th width="150">
@@ -171,7 +171,7 @@
 				</div>
 			</div>
 			
-			<div class="pagination fr">
+			<div class="pagination fr" style="display:none;">
 				<ul>
 					<li>
 						<a href="#">上一页</a>
@@ -210,6 +210,12 @@
 <script src="/js/common.js"></script>
 <script type="text/javascript">
         AV.initialize("fe8r9l7ml0ib0ycsh03olv9qcxtay51v3jdtbg5u78m4s7vr", "r345znn0o1c3mfx11u49rn5mwqsty5h0xfb3pe3u3rumzbt2");
+		var currentUser = AV.User.current();
+		if (currentUser) {
+			alert('登录成功');
+		} else {
+			location.href = './login';
+		}
 </script>
 <script type="text/javascript">
 	function createTpl(str, cfg) {
