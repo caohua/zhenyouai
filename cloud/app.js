@@ -59,6 +59,7 @@ app.get('/wedding',function(req,res){
 	query.include("video");
 	query.include("location");
 	query.include("invicationcard");
+	query.include("inviteMessage");
 
 	query.get(id,{
 		 success: function(wedding){
