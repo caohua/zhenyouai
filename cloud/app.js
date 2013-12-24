@@ -66,7 +66,7 @@ app.get('/wedding',function(req,res){
 			for (var i=0,len=wedding.length; i<len; i++){
 				
 			}
-			res.render('wedding',{id:id,wedding:wedding,userName:'阿树1'});
+			res.render('wedding',{id:id,wedding:wedding});
 		 }
 	});
 });
@@ -79,18 +79,18 @@ app.get('/addwedding',function(req,res){
 
 	query.get(id,{
 		 success: function(wedding){
-			res.render('addwedding',{id:id,wedding:wedding,userName:'阿树1'});
+			res.render('addwedding',{id:id,wedding:wedding});
 		 }
 	});
 });
 
 app.get('/category',function(req,res){
 	var id = req.query.id;
-	res.render('category',{id:id,userName:'阿树1'});
+	res.render('category',{id:id});
 });
 
 app.get('/',function(req,res){
-	res.render('index',{userName:'阿树1'});
+	res.render('index',{});
 });
 //最后，必须有这行代码来使express响应http请求
 app.listen();
