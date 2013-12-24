@@ -325,12 +325,12 @@
 							<div class="control-group">
 								<label class="control-label">转发内容：</label>
 								<div class="controls">
-									<textarea rows="3" class="input-xxlarge" id="invite_message"><%= wedding.get('inviteMessage')?wedding.get('inviteMessage').get('content'):''%></textarea>
+									<textarea rows="3" class="input-xxlarge" id="share_message"><%= wedding.get('inviteMessage')?wedding.get('inviteMessage').get('content'):''%></textarea>
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<button type="submit" class="btn" id="save_share_message"  data-loading-text="处理中...">保存</button>
+									<button type="submit" class="btn" id="save_share_message" sid="<%= wedding.get('inviteMessage')?wedding.get('inviteMessage').id %>"  data-loading-text="处理中...">保存</button>
 								</div>
 							</div>
 						</form>
@@ -569,6 +569,26 @@
 		  }
 		});
 		
+		return false;
+	});
+	
+	//保存转发内容
+	$('#save_share_message').bind('click',function(){
+		var content = $('#share_message').val();
+		var id = $(this).attr('sid');
+		
+		var InviteMessage = AV.Object.enxtend('InviteMessage');
+		var query = new AV.Query(InviteMessage);
+		query.get(id,{
+			success: function(obj){
+				obj.set('content',content);
+				obj.save(null,{
+					success: function(){
+						alert('保存成功');
+					}
+				});
+			}
+		});
 		return false;
 	});
 	
