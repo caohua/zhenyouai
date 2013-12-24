@@ -277,6 +277,7 @@
 		var Video =  AV.Object.extend('Video');
 		var Location =  AV.Object.extend('Location');
 		var Invitationcard =  AV.Object.extend('Invitationcard');
+		var InviteMessage =  AV.Object.extend('InviteMessage');
 		var code = parseInt(Math.random()*100000000)+'';
 		
 		var wedding = new Wedding();
@@ -286,6 +287,7 @@
 		var location1 = new Location();
 		var couple = new Couple();
 		var invitationcard = new Invitationcard();
+		var inviteMessage = new InviteMessage();
 		
 		couple.set('boy',boy);
 		couple.set('girl',girl);
@@ -297,8 +299,7 @@
 		wedding.set('location',location1);
 		wedding.set('holdAt',new Date(time));
 		wedding.set('invicationcard',invitationcard);
-		
-		
+		wedding.set('inviteMessage',inviteMessage);
 		
 		wedding.save(null,{
 			success: function(wedding){
