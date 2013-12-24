@@ -577,7 +577,7 @@
 		var content = $('#share_message').val();
 		var id = $(this).attr('sid');
 		
-		var InviteMessage = AV.Object.enxtend('InviteMessage');
+		var InviteMessage = AV.Object.extend('InviteMessage');
 		var query = new AV.Query(InviteMessage);
 		query.get(id,{
 			success: function(obj){
