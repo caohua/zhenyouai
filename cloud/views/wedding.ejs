@@ -462,10 +462,31 @@
 	
 	//更新邀请卡
 	function initInviteTpl(conf){
-		var tpl = '<li id="%id%"><img class="invite_img" alt="" src="%img%"><img class="invite_cover invite_cover%index%" alt="" src="./images/invite%index%.png"><div class="upload_invite"><a class="btn btn-info" href="#">选择图片</a><input type="file"></div></li>';
+		var tpl = '<li id="%id%"><img class="invite_img" alt="" src="%img%"><img class="invite_cover invite_cover%index%" alt="" src="./images/invite%index%.png"><div class="upload_invite"><a class="btn btn-info" href="#">选择图片</a><input type="file" class="upload_invite_cover" cid="%id%"></div></li>';
 		var str = createTpl(tpl,conf);
 		return str;
 	}
+	
+	function uploadInviteCover(fileController,callback){
+		var fileUploadControl = fileController[0];
+		if (fileUploadControl.files.length > 0){
+			var file = fileUploadControl.files[0];
+  			var name = "photo.jpg";
+
+			var avFile = new AV.File(name,file);
+			avFile.save().then(function(file){
+				callback && callback(file);
+			},function(error){});
+			
+		}else{
+			alert('请选择要上传的图片。');
+		}
+	}
+	$('.upload_invite_cover').change(function(){
+		uploadInviteCover($(this),function(file){
+			console.log(file);
+		});
+	});
 	function updateInvite(){
 		var Invitationcard = AV.Object.extend('Invitationcard');
 		var query = new AV.Query(Invitationcard);
