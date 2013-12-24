@@ -574,8 +574,21 @@
 	
 	//保存邀请内容
 	$('#save_invite_message').bind('click',function(){
-		var val = $('#invite_message').val();
-		alert('ss');
+		var content = $('#invite_message').val();
+		var id = $(this).attr('sid');
+		
+		var Invitationcard = AV.Object.extend('Invitationcard');
+		var query = new AV.Query(Invitationcard);
+		query.get(id,{
+			success: function(obj){
+				obj.set('content',content);
+				obj.save(null,{
+					success: function(){
+						alert('保存成功');
+					}
+				});
+			}
+		});
 		return false;
 	});
 	//保存转发内容
