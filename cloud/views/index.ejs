@@ -304,7 +304,7 @@
 			success: function(wedding){
 				var id = wedding.id;
 				var Invitationcard =  AV.Object.extend('Invitationcard');
-				for (var i=0; i<len; i++){
+				for (var i=0; i<5; i++){
 					var invitationcard = new Invitationcard();
 					invitationcard.set('weddingId',id);
 					invitationcard.set('index',i);
