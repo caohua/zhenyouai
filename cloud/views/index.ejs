@@ -304,14 +304,38 @@
 			success: function(wedding){
 				var id = wedding.id;
 				var Invitationcard =  AV.Object.extend('Invitationcard');
-				for (var i=0; i<5; i++){
-					var invitationcard = new Invitationcard();
-					invitationcard.set('weddingId',id);
-					invitationcard.set('index',i);
-					invitationcard.save();
-				}
+				var invitationcard1 = new Invitationcard();
+				invitationcard1.set('weddingId',id);
+				invitationcard1.set('index',0);
+				invitationcard1.save();
 				
-				//location.href = "./wedding?id="+id;
+				var invitationcard2 = new Invitationcard();
+				invitationcard2.set('weddingId',id);
+				invitationcard2.set('index',1);
+				invitationcard2.save();
+				
+				var invitationcard3 = new Invitationcard();
+				invitationcard3.set('weddingId',id);
+				invitationcard3.set('index',2);
+				invitationcard3.save();
+				
+				var invitationcard4 = new Invitationcard();
+				invitationcard4.set('weddingId',id);
+				invitationcard4.set('index',3);
+				invitationcard4.save();
+				
+				var invitationcard5 = new Invitationcard();
+				invitationcard5.set('weddingId',id);
+				invitationcard5.set('index',4);
+				invitationcard5.save(null,{
+					success: function(){
+						setTimeout(function(){
+							location.href = "./wedding?id="+id;
+						},1500);
+					}
+				});
+				
+				
 			},
 			error: function(couple,error){
 				alert('Failed to create new object, with error code: ' + error.description);
