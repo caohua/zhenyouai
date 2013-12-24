@@ -42,7 +42,7 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="tabbable" id="tabs-81246">
-				<ul class="nav nav-tabs">
+				<ul class="nav nav-tabs" id="nav_tabs">
 					<li class="active">
 						<a href="#panel-1" >婚礼封面</a>
 					</li>
@@ -542,6 +542,13 @@
 		$('#invite_message').wysihtml5();
 		uploadCategory();
 		updateInvite();
+		$('#nav_tabs').on('click','li',function(){
+			var id = $(this).find('a').attr('href');
+			if ($(this).hasClass('active')){return false;}
+			$('.active').removeClass('active');
+			$(this).addClass('active');
+			$(id).addClass('active')
+		});
 	}
 	
 	init();
