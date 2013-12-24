@@ -44,32 +44,32 @@
 			<div class="tabbable" id="tabs-81246">
 				<ul class="nav nav-tabs" id="nav_tabs">
 					<li class="active">
-						<a href="#panel-1" >婚礼封面</a>
+						<a href="#wedding_cover" >婚礼封面</a>
 					</li>
 					<li>
-						<a href="#panel-2" >甜蜜婚照</a>
+						<a href="#wedding_photos" >甜蜜婚照</a>
 					</li>
 					<li>
-						<a href="#panel-3" >新郎新娘介绍</a>
+						<a href="#wedding_couple" >新郎新娘介绍</a>
 					</li>
 					<li>
-						<a href="#panel-4" >婚宴日间地点</a>
+						<a href="#wedding_time" >婚宴日间地点</a>
 					</li>
 					<li>
-						<a href="#panel-5" >视频</a>
+						<a href="#wedding_video" >视频</a>
 					</li>
 					<li>
-						<a href="#panel-6" >电子请贴</a>
+						<a href="#wedding_invite" >电子请贴</a>
 					</li>
 					<li>
-						<a href="#panel-7" >转发设置</a>
+						<a href="#wedding_share" >转发设置</a>
 					</li>
 					<li>
-						<a href="#panel-8" >婚礼流程</a>
+						<a href="#wedding_flow" >婚礼流程</a>
 					</li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane active" id="panel-1">
+					<div class="tab-pane active" id="wedding_cover">
 						<div class="alert alert-info">
 							<button type="button" class="close" data-dismiss="alert">×</button>
 							<strong>提示：</strong> 上传图片不要超过4M
@@ -80,7 +80,7 @@
 						</div>
 						<img class="img-polaroid wedding_cover" id="wedding_img" src="<%= wedding.get('couple').get('weddingcover')?wedding.get('couple').get('weddingcover').url():'http://paas-files.qiniudn.com/7HBCWt62tXQo9dENDz2BN5Dj5IHgaYHRynzADoXt.jpg' %>" />
 					</div>
-					<div class="tab-pane" id="panel-2">
+					<div class="tab-pane" id="wedding_photos">
 						<div class="row-fluid">
 							<div class="span12">
 								<div class="photo_box">
@@ -163,7 +163,7 @@
 						</div>
 					</div>
 					
-					<div class="tab-pane" id="panel-3">
+					<div class="tab-pane" id="wedding_couple">
 						<form class="form-horizontal user_intro_form" >
 							<div class="control-group">
 								<label class="control-label">新郎介绍：</label>
@@ -191,7 +191,7 @@
 						</form>
 					</div>
 					
-					<div class="tab-pane" id="panel-4">
+					<div class="tab-pane" id="wedding_time">
 						<form class="form-horizontal party_intro_form" >
 							<div class="control-group">
 								<label class="control-label">坐标：</label>
@@ -226,7 +226,7 @@
 						</form>
 					</div>
 					
-					<div class="tab-pane" id="panel-5">
+					<div class="tab-pane" id="wedding_video">
 						<form class="form-horizontal party_intro_form" >
 							<div class="control-group">
 								<label class="control-label">地址：</label>
@@ -252,7 +252,7 @@
 						</form>
 					</div>
 					
-					<div class="tab-pane" id="panel-6">
+					<div class="tab-pane" id="wedding_invite">
 						<form class="form-horizontal" >
 							<div class="control-group">
 								<label class="control-label">请贴内容：</label>
@@ -320,7 +320,7 @@
 						</form>
 					</div>
 
-					<div class="tab-pane" id="panel-7">
+					<div class="tab-pane" id="wedding_share">
 						<form class="form-horizontal" >
 							<div class="control-group">
 								<label class="control-label">转发内容：</label>
@@ -336,7 +336,7 @@
 						</form>
 					</div>
 					
-					<div class="tab-pane" id="panel-8">
+					<div class="tab-pane" id="wedding_flow">
 						<form class="form-horizontal" >
 							<div class="control-group">
 								<label class="control-label">内容：</label>
