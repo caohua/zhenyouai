@@ -54,18 +54,6 @@
 	var categoryId = '<%= id%>';
 	var PHOTO_NUM = 0;
 	
-	function createTpl(str, cfg) {
-		var _re = /(%([\w]+?)%)/g;
-		
-		return str.replace(_re, function() {
-			var _val = cfg[arguments[2]]+'';
-			if(typeof _val == 'undefined') {
-				_val = '';
-			}
-			return _val;
-		});
-	}
-	
 	function initPhotoTpl(conf){
 		var tpl = '<li id="%id%"><a class="photo_img" href="%img%" target="blank"  data-lightbox="demo" ><img class="img-polaroid" src="%img%?imageView/2/w/300" alt="" /><span href="#" class="remove_photo icon-remove" cid="%id%"></span></a></li>';
 		var str = createTpl(tpl,conf);
