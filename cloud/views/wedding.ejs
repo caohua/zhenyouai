@@ -503,6 +503,7 @@
 			$('#invite_list').html(_html);
 			$('.upload_invite_cover').change(function(){
 				var cid = $(this).attr('cid');
+				setDoingStatus($(this).prev('.btn'));
 				uploadInviteCover($(this),function(file){
 					console.log(file);
 					var Invitationcard = AV.Object.extend('Invitationcard');

@@ -1,6 +1,12 @@
 ﻿$('.btn').bind('click',function(){
     var txt = $(this).text();
     var load = $(this).attr('data-loading-text');
+	var time = $(this).attr('timeout');
+	if (!time){
+		time = 3000;
+	}else{
+		time = parseInt(time);
+	}
 	if (load){
 		$(this).text(load);
 		$(this).attr('disabled','disabled');
@@ -8,13 +14,19 @@
 		setTimeout(function(){
 			btn.removeAttr('disabled');
 			btn.text(txt);
-		},3000);
+		},time);
 	}
 });
 
 function setDoingStatus(dom){
 	var txt = $(dom).text();
     var load = $(dom).attr('data-loading-text');
+	var time = $(this).attr('timeout');
+	if (!time){
+		time = 3000;
+	}else{
+		time = parseInt(time);
+	}
 	if (load){
 		$(dom).text(load);
 		$(dom).attr('disabled','disabled');
@@ -22,7 +34,7 @@ function setDoingStatus(dom){
 		setTimeout(function(){
 			btn.removeAttr('disabled');
 			btn.text(txt);
-		},3000);
+		},time);
 	}
 }
 
