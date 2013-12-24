@@ -547,7 +547,10 @@
 			if ($(this).hasClass('active')){return false;}
 			$('.active').removeClass('active');
 			$(this).addClass('active');
-			$(id).addClass('active')
+			$(id).addClass('active');
+			location.hash = id;
+			
+			return false;
 		});
 	}
 	
